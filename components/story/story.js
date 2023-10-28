@@ -1,11 +1,10 @@
 const template = document.createElement("template");
 template.innerHTML = `
-	<link rel="stylesheet" href="style/style.css" />
+	<link rel="stylesheet" href="style/style.css"/>
     <figure class="h-full w-[70px]  mx-2 flex flex-col justify-center items-center ">
-					<img src="images/image/image_story.jpg" alt="" class="w-full h-3/4 rounded-full storyLine">
-					<h3 class="font-mavisBold text-xs text-gray-100">m__mdy__m</h3>
-				</figure>
-	`;
+		<img src="images/image/image_story.jpg" alt="" class="w-full h-3/4 rounded-full storyLine cursor-pointer">
+		<h3 class=" text-xs text-gray-100"></h3>
+	</figure>`;
 class story extends HTMLElement {
 	constructor() {
 		super();
@@ -13,7 +12,13 @@ class story extends HTMLElement {
 		this.shadowRoot.appendChild(template.content.cloneNode(true));
 	}
 	connectedCallback() {
-		this.shadowRoot.querySelector("");
+		this.shadowRoot.querySelector("img").innerHTML =
+			this.getAttribute("profile");
+		this.shadowRoot.querySelector("h3").innerHTML =
+			this.getAttribute("id-page");
+	}
+	static observedAttributes() {
+		return ["profile", "id-page"];
 	}
 }
 export { story };

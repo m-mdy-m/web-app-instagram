@@ -605,6 +605,26 @@ video {
   margin-right: 0.5rem;
 }
 
+.mt-\[10px\] {
+  margin-top: 10px;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-28 {
+  margin-top: 7rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -666,6 +686,10 @@ video {
   width: 70px;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -714,9 +738,29 @@ video {
   font-family: MAVISBold;
 }
 
+.font-mavisLight {
+  font-family: MAVISLight;
+}
+
+.font-aktivBold {
+  font-family: AktivBold;
+}
+
+.font-aktivLight {
+  font-family: AktivLight;
+}
+
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
 }
 
 .text-gray-100 {
