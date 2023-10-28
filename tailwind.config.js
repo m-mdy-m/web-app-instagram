@@ -4,12 +4,12 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				mavis: "MAVIS",
+				mavis: "mavis",
 				mavisBold: "MAVISBold",
-				MAVISLight: "MAVISLight",
-				AktBOld: "AktivGroteskCorp-Bold",
-				AktLight: "AktivGroteskCorp-Light",
-				AktRegular: "AktivGroteskCorp-Regular",
+				mavisLight: "MAVISLight",
+				aktivBold: "AktivBold",
+				aktivLight: "AktivLight",
+				aktivRegular: "AktivRegular",
 			},
 		},
 	},

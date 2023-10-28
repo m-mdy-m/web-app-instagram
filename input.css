@@ -2,29 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer{
-    @font-face {
-        font-family: 'MAVIS';
-        src: url("fonts/MAVIS.otf");
-    }
-    @font-face {
-        font-family: 'MAVISBold';
-        src: url("fonts/MAVISBold.ttf");
-    }
-    @font-face {
-        font-family: 'MAVISLight';
-        src: url("fonts/MAVISLight.ttf");
-    }
-    @font-face {
-        font-family: 'AktivGroteskCorp-Bold';
-        src: url("fonts/AktivGroteskCorp-Bold.ttf");
-    }
-    @font-face {
-        font-family: 'AktivGroteskCorp-Light';
-        src: url("fonts/AktivGroteskCorp-Light.ttf");
-    }
-    @font-face {
-        font-family: 'AktivGroteskCorp-Regular';
-        src: url("fonts/AktivGroteskCorp-Regular.ttf");
-    }
+@layer base {
+	@font-face {
+		font-family: "mavis";
+		src: url("../fonts/MAVIS.otf");
+	}
+	@font-face {
+		font-family: "MAVISBold";
+		src: url("../fonts/MAVISBold.ttf");
+	}
+	@font-face {
+		font-family: "MAVISLight";
+		src: url("../fonts/MAVISLight.ttf");
+	}
+	@font-face {
+		font-family: "AktivBold";
+		src: url("../fonts/AktivGroteskCorp-Bold.ttf");
+	}
+	@font-face {
+		font-family: "AktivLight";
+		src: url("../fonts/AktivGroteskCorp-Light.ttf");
+	}
+	@font-face {
+		font-family: "AktivRegular";
+		src: url("../fonts/AktivGroteskCorp-Regular.ttf");
+	}
+}
+@layer utilities{
+	.storyLine{
+		border: 3px solid red;
+		padding: 1px;
+	}
 }

@@ -1,3 +1,4 @@
-import { story } from "../components/story/story";
+import { story } from "../components/story/story.js";
 
-window.customElements.define('story',story)
+window.customElements.define("story-box", story);
+console.log(story);

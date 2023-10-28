@@ -434,6 +434,42 @@ video {
   display: none;
 }
 
+@font-face {
+  font-family: "mavis";
+
+  src: url("../fonts/MAVIS.otf");
+}
+
+@font-face {
+  font-family: "MAVISBold";
+
+  src: url("../fonts/MAVISBold.ttf");
+}
+
+@font-face {
+  font-family: "MAVISLight";
+
+  src: url("../fonts/MAVISLight.ttf");
+}
+
+@font-face {
+  font-family: "AktivBold";
+
+  src: url("../fonts/AktivGroteskCorp-Bold.ttf");
+}
+
+@font-face {
+  font-family: "AktivLight";
+
+  src: url("../fonts/AktivGroteskCorp-Light.ttf");
+}
+
+@font-face {
+  font-family: "AktivRegular";
+
+  src: url("../fonts/AktivGroteskCorp-Regular.ttf");
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -539,20 +575,12 @@ video {
   margin-right: 2rem;
 }
 
-.mt-12 {
-  margin-top: 3rem;
-}
-
 .box-border {
   box-sizing: border-box;
 }
 
 .flex {
   display: flex;
-}
-
-.h-1\/4 {
-  height: 25%;
 }
 
 .h-24 {
@@ -595,6 +623,10 @@ video {
   justify-content: center;
 }
 
+.justify-around {
+  justify-content: space-around;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -614,49 +646,16 @@ video {
   background-color: rgb(14 165 233 / var(--tw-bg-opacity));
 }
 
-.bg-slate-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+.font-mavisBold {
+  font-family: MAVISBold;
 }
 
-.font-mavis {
-  font-family: MAVIS;
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
-@layer{
-  @font-face {
-    font-family: 'MAVIS';
-
-    src: url("fonts/MAVIS.otf");
-  }
-
-  @font-face {
-    font-family: 'MAVISBold';
-
-    src: url("fonts/MAVISBold.ttf");
-  }
-
-  @font-face {
-    font-family: 'MAVISLight';
-
-    src: url("fonts/MAVISLight.ttf");
-  }
-
-  @font-face {
-    font-family: 'AktivGroteskCorp-Bold';
-
-    src: url("fonts/AktivGroteskCorp-Bold.ttf");
-  }
-
-  @font-face {
-    font-family: 'AktivGroteskCorp-Light';
-
-    src: url("fonts/AktivGroteskCorp-Light.ttf");
-  }
-
-  @font-face {
-    font-family: 'AktivGroteskCorp-Regular';
-
-    src: url("fonts/AktivGroteskCorp-Regular.ttf");
-  }
+.storyLine{
+  border: 3px solid red;
+  padding: 1px;
 }
