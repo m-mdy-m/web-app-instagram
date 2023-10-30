@@ -11,11 +11,14 @@ module.exports = {
 				aktivLight: "AktivLight",
 				aktivRegular: "AktivRegular",
 			},
+			animation: {
+				opacityAnimation: "opacityAnimation 2s forwards ;",
+			},
 		},
-		container:{
-			center:true,
-			padding:'4rem',
-		}
+		container: {
+			center: true,
+			padding: "4rem",
+		},
 	},
 	plugins: [],
 };

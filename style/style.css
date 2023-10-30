@@ -633,6 +633,10 @@ video {
   margin-right: 1.25rem;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -681,6 +685,10 @@ video {
   height: 100vh;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
 .w-14 {
   width: 3.5rem;
 }
@@ -721,6 +729,10 @@ video {
   --tw-scale-x: .1;
   --tw-scale-y: .1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.animate-opacityAnimation {
+  animation: opacityAnimation 2s forwards ;;
 }
 
 .cursor-pointer {
@@ -792,6 +804,11 @@ video {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
+.bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
+
 .bg-teal-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(13 148 136 / var(--tw-bg-opacity));
@@ -842,6 +859,10 @@ video {
 
 .lowercase {
   text-transform: lowercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
 
 .text-gray-100 {
@@ -929,17 +950,15 @@ video {
   background: url("../images/image/image_story.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: right top;
-  background-origin: right;
+  background-position: right ;
 }
 
-.bgImage:hover{
+.bgImage:hover {
   transition: all 2s;
   background: url("../images/image/image_story.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: left top;
-  background-origin: left;
+  background-position: left ;
 }
 
 .shadowBefore {
@@ -972,30 +991,64 @@ video {
   animation-delay: 5s;
 }
 
-.logo h2{
+.logo h2 {
   animation: showText 5s forwards;
   animation-delay: 5s;
 }
 
 @keyframes showText {
-  0%{
+  0% {
     opacity: 0;
-    transform: scale(.1);
+    transform: scale(0.1);
   }
 
-  100%{
-    opacity: .7;
+  100% {
+    opacity: 0.7;
     transform: scale(1);
   }
 }
 
+@keyframes opacityAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes MoveToBottom {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes MoveToTop {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
 @keyframes hiddenImg {
-  0%{
+  0% {
     transform: scale(1) rotateX(0deg);
     opacity: 1;
   }
 
-  100%{
+  100% {
     transform: scale(0.1) rotateX(360deg);
     opacity: 0;
   }

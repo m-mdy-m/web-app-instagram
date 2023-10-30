@@ -1,7 +1,7 @@
 const template = document.createElement("template");
 template.innerHTML = `
 	<link rel="stylesheet" href="style/style.css" />
-    <div class="h-48 w-[85px] min-w-[70px] max-w-28 flex flex-col justify-between items-center relative font-aktivLight bgImage lowercase shadowBefore rounded-lg mx-3  ">
+    <div class="h-48 w-[85px] min-w-[70px] max-w-28 flex flex-col justify-between items-center relative font-aktivLight bgImage lowercase shadowBefore rounded-lg  mx-3  opacity-0 odd:animate-MoveToBottom even:animate-MoveToTop ">
 						<figure class="h-full flex flex-col justify-between items-center w-full  ">
 							<img src="../images/image/image_story.jpg" alt="" class="w-full rounded-full storyLine cursor-pointer mt-2 hover:scale-[1.2] transition-all duration-1000">
 						</figure>
@@ -19,11 +19,20 @@ class story extends HTMLElement {
 			.setAttribute("src", this.getAttribute("profile"));
 		this.shadowRoot.querySelector("h3").innerHTML =
 			this.getAttribute("id-page");
-		this.shadowRoot.querySelector("div").style.backgroundImage = `url(${this.getAttribute("bgProfile")})`;
+		this.shadowRoot.querySelector(
+			"div"
+		).style.backgroundImage = `url(${this.getAttribute("bgProfile")})`;
+		let divElm = this.shadowRoot.querySelectorAll("div");
+		divElm.forEach(
+			divElm =>
+				(divElm.style.animation = `${this.getAttribute(
+					"nameAnimation"
+				)}.7s forwards cubic-bezier(0, 1.39, 0.79, 1.29) 1.5s`)
+		);
 	}
 
 	static observedAttributes() {
-		return ["profile", "id-page", "bgProfile"];
+		return ["profile", "id-page", "bgProfile", "nameAnimation"];
 	}
 }
 export { story };
