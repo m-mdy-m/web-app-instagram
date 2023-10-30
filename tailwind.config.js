@@ -12,6 +12,10 @@ module.exports = {
 				aktivRegular: "AktivRegular",
 			},
 		},
+		container:{
+			center:true,
+			padding:'4rem',
+		}
 	},
 	plugins: [],
 };

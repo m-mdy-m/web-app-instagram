@@ -77,10 +77,20 @@
 			);
 	}
 	.bgImage {
-		background-image: url("../images/image/image_story.jpg");
+		background: url("../images/image/image_story.jpg");
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: right top;
+		background-origin: right;
+		
+	}
+	.bgImage:hover{
+		transition: all 2s;
+		background: url("../images/image/image_story.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: left top;
+		background-origin: left;
 	}
 	.shadowBefore {
 		&::before {
@@ -93,6 +103,43 @@
 			background: linear-gradient(transparent, rgba(10, 10, 10, 0.75));
 			border-bottom-right-radius: 1rem;
 			border-bottom-left-radius: 1rem;
+		}
+	}
+	.SearchBox {
+		&::-webkit-input-placeholder {
+			color: white;
+		}
+		&::-webkit-search-cancel-button {
+			appearance: none;
+			display: none;
+		}
+	}
+	.logoInstagram {
+		animation: hiddenImg 5s forwards;
+		animation-delay: 5s;
+	}
+	.logo h2{
+		animation: showText 5s forwards;
+		animation-delay: 5s;
+	}
+	@keyframes showText {
+		0%{
+			opacity: 0;
+			transform: scale(.1);
+		}
+		100%{
+			opacity: .7;
+			transform: scale(1);
+		}
+	}
+	@keyframes hiddenImg {
+		0%{
+			transform: scale(1) rotateX(0deg);
+			opacity: 1;
+		}
+		100%{
+			transform: scale(0.1) rotateX(360deg);
+			opacity: 0;
 		}
 	}
 }
