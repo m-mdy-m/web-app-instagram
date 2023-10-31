@@ -15,3 +15,28 @@ let logoImg = document.querySelector('.logo img')
 window.addEventListener('load',()=>{
     logoImg.classList.add('logoInstagram')
 })
+let menuBtn = document.querySelector(".fixed__nav");
+let menuShape = document.querySelector(".fixed__nav-shape");
+let menuLink = document.querySelectorAll(".fixed__nav-link");
+let ShowMenu = false;
+menuLink.forEach(data => {
+	const dataName = data.getAttribute("data-name");
+	data.style.setProperty("--content", `'${dataName}'`);
+	data.addEventListener("mouseover", () => {
+		data.classList.toggle("animate");
+	});
+	data.addEventListener("mouseout", () => {
+		data.classList.remove("animate");
+	});
+});
+menuShape.addEventListener("click", () => {
+	if (ShowMenu) {
+		menuBtn.classList.remove("activeMenu");
+		menuShape.style.opacity = ".2";
+		ShowMenu = false;
+	} else {
+		menuBtn.classList.add("activeMenu");
+		menuShape.style.opacity = "1";
+		ShowMenu = true;
+	}
+});

@@ -6,9 +6,10 @@
 		<title>WebInstagram</title>
 		<link rel="stylesheet" href="style/style.css" />
 		<link rel="icon" href="images/icon/Instagram.svg">
+		<link rel="stylesheet" href="nav.css">
 	</head>
-	<body class="bg-black w-full h-screen box-border">
-		<div class="container">
+	<body class="bg-black w-full h-screen box-border relative">
+		<div class="container ">
 			<header class="w-full h-64 flex flex-col ">
 				<div class="h-1/4   flex justify-center items-center">
 					<div class="basis-[20%] h-full flex items-center justify-center relative logo">
@@ -47,6 +48,33 @@
 					<story-box profile="../images/image/image_story4.jpg" id-page="mahdi19" bgProfile="../images/image/image_story5.jpg" nameAnimation="MoveToTop" ></story-box>
 				</div>
 			</header>
+				<div class="fixed__nav flex">
+					<img
+						src="images/icon/face-grin-wide.svg"
+						alt="add_circled"
+						class="fixed__nav-shape"
+					/>
+					<li class="fixed__nav-item" style="--i: 1">
+						<a href="#" class="fixed__nav-link" data-name="Home"
+							><img src="images/icon/home.svg" alt="Home"
+						/></a>
+					</li>
+					<li class="fixed__nav-item" style="--i: 2">
+						<a href="#" class="fixed__nav-link" data-name="Prmum"
+							><img src="images/icon/PREMIUM.svg" alt="Premium"
+						/></a>
+					</li>
+					<li class="fixed__nav-item" style="--i: 3">
+						<a href="#" class="fixed__nav-link" data-name="Notif"
+							><img src="images/icon/notification.svg" alt="Notif"
+						/></a>
+					</li>
+					<li class="fixed__nav-item" style="--i: 4">
+						<a href="#" class="fixed__nav-link" data-name="info"
+							><img src="images/icon/info.svg" alt="info"
+						/></a>
+					</li>
+				</div>
 			<main class="flex justify-center items-center flex-col mt-10">
 				
 			</main>

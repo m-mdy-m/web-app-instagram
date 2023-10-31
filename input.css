@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer base {
 	@font-face {
 		font-family: "mavis";
@@ -80,14 +79,14 @@
 		background: url("../images/image/image_story.jpg");
 		background-repeat: no-repeat;
 		background-size: cover;
-		background-position: right ;
+		background-position: right;
 	}
 	.bgImage:hover {
 		transition: all 2s;
 		background: url("../images/image/image_story.jpg");
 		background-repeat: no-repeat;
 		background-size: cover;
-		background-position: left ;
+		background-position: left;
 	}
 	.shadowBefore {
 		&::before {
@@ -165,6 +164,16 @@
 		100% {
 			transform: scale(0.1) rotateX(360deg);
 			opacity: 0;
+		}
+	}
+	@keyframes MoveToRight {
+		0% {
+			transform: translateX(50px);
+			opacity: 0;
+		}
+		100% {
+			transform: translateY(0);
+			opacity: 1;
 		}
 	}
 }
