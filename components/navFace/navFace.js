@@ -17,6 +17,9 @@ class navFaceEmoji extends HTMLElement {
 		let liMenu = this.shadowRoot.querySelector("li");
 		let menuFace = this.shadowRoot.querySelector("div");
 		let img = this.shadowRoot.querySelector("img");
+		let menuMessage = document.querySelector(".menuMessage");
+		let menuText = document.querySelector('.menuMessage__text')
+		let menuProfile = document.querySelector('.menuMessage__profile')
 		let ShowMenu = false;
 		liMenu.style.cssText = `
 		transition-delay: calc(0.2s * var(--i));`;
@@ -27,10 +30,42 @@ class navFaceEmoji extends HTMLElement {
 				img.style.cssText =
 					"transform: rotate(0deg); transition: all 1.5s;";
 				liMenu.style.cssText = `opacity: 1; transition: all 1s;`;
-
+				menuMessage.style.cssText=`
+				width:0;
+				height:0%;
+				opacity:0;
+				transition: all 2s;
+				`
+				menuText.style.cssText=
+					`
+					opacity:0;
+					`
+					menuProfile.style.cssText=
+					`
+					opacity:0;
+					`
 			} else {
 				menuFace.classList.add("activeMenu");
 				ShowMenu = true;
+				menuMessage.classList.add('menuMessage')
+				if (menuMessage.classList.contains('menuMessage')) {
+					menuMessage.style.cssText=`
+					width:15rem;
+					height:75%;
+					opacity:1;
+					transition: all 2s;
+					` 
+					menuText.style.cssText=
+					`
+					animation: opacityAnimation 2s forwards 2s cubic-bezier(0, 1.2, 0.45, 1.4);
+					opacity:0;
+					`
+					menuProfile.style.cssText=
+					`
+					animation: opacityAnimation 3s forwards 3s cubic-bezier(0, 1.2, 0.45, 1.4);
+					opacity:0;
+					`
+				}
 				if (menuFace.classList.contains("activeMenu")) {
 					img.style.cssText =
 						"transform: rotate(-135deg); transition: all 1.5s;";
@@ -38,11 +73,12 @@ class navFaceEmoji extends HTMLElement {
                     transition: all 1s;
                     transform: rotate(calc(200deg / -4 * var(--i)));`;
 				}
-                
-            }
+			}
+			
 		});
+		// w-60 h-3/4
 	}
-
+	
 	static observedAttributes() {
 		return ["profile", "id-page", "bgProfile", "nameAnimation"];
 	}

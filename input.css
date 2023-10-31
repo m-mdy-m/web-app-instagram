@@ -32,6 +32,7 @@
 		width: 3.5rem;
 		height: 3.5rem;
 		padding: 2px;
+		
 		background: radial-gradient(
 				circle farthest-corner at 35% 90%,
 				#fec564,
@@ -113,6 +114,7 @@
 	.logoInstagram {
 		animation: hiddenImg 5s forwards;
 		animation-delay: 5s;
+		
 	}
 	.logo h2 {
 		animation: showText 5s forwards;
