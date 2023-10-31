@@ -118,28 +118,15 @@
 		animation: showText 5s forwards;
 		animation-delay: 5s;
 	}
-	.showText::before {
-		display: flex;
-		justify-content: center;
-		align-items: flex-start;
-		flex-wrap: nowrap;
-		content: var(--content);
-		width: 0px;
-		height: 0px;
-		position: absolute;
-		font-family: "mavis";
-		bottom: 0px;
-		right: 0;
-		opacity: 0;
-		text-transform: capitalize;
-		clip-path: polygon(
-			0% 0%,
-			100% 0%,
-			100% 75%,
-			75% 75%,
-			75% 100%,
-			50% 75%,
-			0% 75%
+	
+	.linearGradient {
+		background-image: linear-gradient(
+			to bottom,
+			#03457891,
+			#083c6c9f,
+			#0b33609f,
+			#0c295427,
+			transparent
 		);
 	}
 	@keyframes showText {
