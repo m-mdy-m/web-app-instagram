@@ -10,5 +10,14 @@ class profile extends HTMLElement {
 		this.attachShadow({ mode: "open" });
 		this.shadowRoot.appendChild(template.content.cloneNode(true));
 	}
+	connectedCallback() {
+		this.shadowRoot
+			.querySelector("img")
+			.setAttribute("src", this.getAttribute("profile"));
+	}
+
+	static observedAttributes() {
+		return ["profile"];
+	}
 }
 export { profile };

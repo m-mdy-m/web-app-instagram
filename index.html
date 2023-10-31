@@ -25,7 +25,7 @@
 						<btn-box content="create post" ></btn-box>
     					<!-- <button class="w-24 h-8 bg-teal-600 rounded-xl font-mavisBold uppercase text-base text-slate-100 justify-items-center mr-5 hover:bg-teal-800 opacity-0 animate-opacityAnimation">create</button> -->
 						
-						<profile-box ></profile-box>
+						<profile-box profile="images/image/image_story.jpg"></profile-box>
 						<!-- <a href="#">
 							<img src="images/image/image_story.jpg" alt="profile" class="w-14 h-14 rounded-full border border-solid opacity-0 animate-opacityAnimation border-x-cyan-950 border-y-cyan-700 hover:border-cyan-700 transition-all duration-400 hover:border-2 ">
 						</a> -->
@@ -48,37 +48,54 @@
 					<story-box profile="../images/image/image_story4.jpg" id-page="mahdi19" bgProfile="../images/image/image_story5.jpg" nameAnimation="MoveToTop" ></story-box>
 				</div>
 			</header>
-				<div class="fixed__nav flex">
-					<img
-						src="images/icon/face-grin-wide.svg"
-						alt="add_circled"
-						class="fixed__nav-shape"
-					/>
-					<li class="fixed__nav-item" style="--i: 1">
-						<a href="#" class="fixed__nav-link" data-name="Home"
-							><img src="images/icon/home.svg" alt="Home"
-						/></a>
-					</li>
-					<li class="fixed__nav-item" style="--i: 2">
-						<a href="#" class="fixed__nav-link" data-name="Prmum"
-							><img src="images/icon/PREMIUM.svg" alt="Premium"
-						/></a>
-					</li>
-					<li class="fixed__nav-item" style="--i: 3">
-						<a href="#" class="fixed__nav-link" data-name="Notif"
-							><img src="images/icon/notification.svg" alt="Notif"
-						/></a>
-					</li>
-					<li class="fixed__nav-item" style="--i: 4">
-						<a href="#" class="fixed__nav-link" data-name="info"
-							><img src="images/icon/info.svg" alt="info"
-						/></a>
-					</li>
-				</div>
-			<main class="flex justify-center items-center flex-col mt-10">
-				
-			</main>
 		</div>
+		<aside class="h-screen bg-green-500 fixed w-60 right-0 top-[4.5rem] ">
+				<nav-box></nav-box>
+				<div class="bg-red-500 w-60 h-3/4 absolute right-0 rounded-2xl ">
+					<div class="w-full h-12  flex justify-between items-center px-2">
+						<h1 class="capitalize font-aktivBold">messages</h1>
+						<img src="images/icon/feather-pointed.svg" alt="" class="w-5">
+					</div>					
+					<search-box class="relative flex justify-center items-center p-2 pl-3 w-full bg-[#f0edf585] rounded-2xl" textHolder="search messages..."></search-box>
+					<div class="h-7  w-full mt-4 flex justify-evenly items-center border-b  border-[#efecf2] border-solid">
+						<!-- <h3 class="font-aktivRegular capitalize cursor-pointer active:border-b-4 border-spacing-y-5 border-[#1d1d22]">Primary</h3> -->
+						<text-dir text="Primary" ></text-dir>
+						<text-dir text="general"></text-dir>
+						<text-dir text="request(7)" class="text-[#8680c5] "></text-dir>
+					</div>
+					<!-- <div class="flex justify-start items-start w-full h-auto bg-sky-500 mt-2">
+						<img src="images/image/image_story.jpg" alt="profile" class="w-14 h-14 rounded-full border border-solid opacity-0 animate-opacityAnimation border-x-cyan-950 border-y-cyan-700 hover:border-cyan-700 transition-all duration-400 hover:border-2 ">
+						<div class="flex justify-center items-start flex-col  pl-2">
+							<h3 class=" font-mavisBold text-[#1d1d22]">m__mdy__m</h3>
+							<p class="text-[#b0b0b2] font-aktivLight ">greats is god</p>
+						</div>
+					</div> -->
+					<div class="flex flex-col  w-full h-4/4 justify-between items-start">
+						<page-dir sourceProfile="images/image/image_story.jpg" namePage="m__mdy__m" bio="greats is god"></page-dir>
+						<page-dir sourceProfile="images/image/image_story4.jpg" namePage="_medishne_" bio="Hello!"></page-dir>
+						<page-dir sourceProfile="images/image/image_story6.jpg" namePage="mt5" bio="Bye!"></page-dir>
+						<page-dir sourceProfile="images/image/image_story3.jpg" namePage="ali24" bio="hi!"></page-dir>
+						<page-dir sourceProfile="images/image/image_story5.jpg" namePage="abass" bio="god!"></page-dir>
+						<!-- <div class="flex justify-start items-start w-full h-auto mt-2">
+							<img src="" alt="profile" class="w-14 h-14 rounded-full border border-solid opacity-0 animate-opacityAnimation border-x-cyan-950 border-y-cyan-700 hover:border-cyan-700 transition-all duration-400 hover:border-2 ">
+							<div class="flex justify-center items-start flex-col  pl-2">
+								<h3 class=" font-mavisBold text-[#1d1d22]">m__mdy__m</h3>
+								<p class="text-[#b0b0b2] font-aktivLight text-xs -mt-2">abass</p>
+							</div>
+						</div> -->
+					</div>
+				</div>
+			</aside>
+		<div class="container ">
+			<main class="flex justify-center items-center flex-col mt-10">			</main>
+
+		</div>
+				<!-- <div class="flex justify-center items-center w-12 h-12 opacity-100 fixed right-12 bottom-12 animate-MoveToRight">
+					<img src="images/icon/face-grin-wide.svg" alt="add_circled" class="opacity-20 absolute w-16 h-12 z-20 cursor-pointer rounded-full bg-green-400" />
+					<li class="w-9 h-9 flex justify-center items-center absolute -right-full top-1/4 opacity-0 origin-[-50px] rotate-0 translate-x-12 bg-sky-[#1c91ff] " style="--i: 1">
+					</li>
+				</div> -->
+				
 		<script type="module" src="scripts/scripts.js"></script>
 	</body>
 </html>

@@ -13,6 +13,7 @@ module.exports = {
 			},
 			animation: {
 				opacityAnimation: "opacityAnimation 2s forwards ;",
+				MoveToRight : 'MoveToRight 0.2s forwards 3s cubic-bezier(0,-0.67, 0.13, 1.49);'
 			},
 		},
 		container: {
