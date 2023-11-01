@@ -13,13 +13,14 @@ template.innerHTML = `
 							<div class=" flex flex-col justify-around items-center [&>*]:cursor-pointer  w-8 h-40 linearGradient-100 absolute -right-10 bottom-6 rounded-xl linePost z-10 ">
 								<img src="images/icon/like.svg" alt="like"  id="like" >
 								<img src="images/icon/share.svg" alt="share" id="share" >
-								<img src="images/icon/comments.svg" alt="comment" id="comment" >
+								<!-- <img src="images/icon/comments.svg" alt="comment" id="comment" > -->
+								<div class="bg-red-500 w-[24px] h-[24px]" id="comments"></div>
 								<img src="images/icon/bookmark.svg" alt="bookmark" id="bookmark" >
 							</div>
 						</div>
 					</div>`;
 
-					class postBox extends HTMLElement {
+class postBox extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({ mode: "open" });
@@ -28,40 +29,45 @@ template.innerHTML = `
 
 	connectedCallback() {
 		let postImg = this.shadowRoot.querySelector(".postImg");
-		this.shadowRoot.querySelector('img').setAttribute('src',this.getAttribute('pin'))
+		this.shadowRoot
+			.querySelector("img")
+			.setAttribute("src", this.getAttribute("pin"));
 		postImg.setAttribute("src", this.getAttribute("post"));
 		let page = this.shadowRoot.querySelector("page-dir");
 		const imagePage = page.shadowRoot.querySelector("img");
-		const namePage = page.shadowRoot.querySelector('h3');
-		const bioPage = page.shadowRoot.querySelector('p') 
-		namePage.innerHTML = this.getAttribute('namePage')
-		imagePage.setAttribute("src",this.getAttribute("profile"));
-		bioPage.innerHTML = this.getAttribute('bio')
-
+		const namePage = page.shadowRoot.querySelector("h3");
+		const bioPage = page.shadowRoot.querySelector("p");
+		namePage.innerHTML = this.getAttribute("namePage");
+		imagePage.setAttribute("src", this.getAttribute("profile"));
+		bioPage.innerHTML = this.getAttribute("bio");
 
 		function toggleImage(element, src, newSrc) {
 			let isToggled = false;
-			
-			element.addEventListener('click', () => {
-			  if (isToggled) {
-				element.setAttribute('src', src);
-				isToggled = false;
-			  } else {
-				element.setAttribute('src', newSrc);
-				isToggled = true;
-			  }
+
+			element.addEventListener("click", () => {
+				if (isToggled) {
+					element.setAttribute("src", src);
+					isToggled = false;
+				} else {
+					element.setAttribute("src", newSrc);
+					isToggled = true;
+				}
 			});
-		  }
-		  
-		  const like = this.shadowRoot.getElementById('like');
-		  toggleImage(like, 'images/icon/like.svg', 'images/icon/likeAdd.svg');
-		  
-		  const bookmark = this.shadowRoot.getElementById('bookmark');
-		  toggleImage(bookmark, 'images/icon/bookmark.svg', 'images/icon/bookmark-slash.svg');
+		}
+
+		const like = this.shadowRoot.getElementById("like");
+		toggleImage(like, "images/icon/like.svg", "images/icon/likeAdd.svg");
+
+		const bookmark = this.shadowRoot.getElementById("bookmark");
+		toggleImage(
+			bookmark,
+			"images/icon/bookmark.svg",
+			"images/icon/bookmark-slash.svg"
+		);
 	}
 
 	static observedAttributes() {
-		return ["post", "profile", "bio", "namePage","pin"];
+		return ["post", "profile", "bio", "namePage", "pin"];
 	}
 }
 export { postBox };

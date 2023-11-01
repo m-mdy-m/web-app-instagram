@@ -173,6 +173,29 @@
 			border-bottom-right-radius: 50px;
 		}
 	}
+	.comments{
+		width: 1800%;
+		height: 10rem;
+		background: #fff;
+		position: absolute;
+		left: -1824%;
+		bottom: 0%;
+	}
+	@keyframes showComments{
+		0%{
+			width: 24px;
+			height: 24px;
+			z-index: -30;
+		}
+		100%{
+			width: 1800%;
+		height: 10rem;
+		background: #fff;
+		position: absolute;
+		left: -1824%;
+		bottom: 0%;
+		}
+	}
 	@keyframes showText {
 		0% {
 			opacity: 0;
