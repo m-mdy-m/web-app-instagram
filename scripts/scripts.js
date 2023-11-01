@@ -8,7 +8,6 @@ import { pageDir } from "../components/PageDir/PageDir.js";
 import { postBox } from "../components/post/postBox.js";
 
 
-
 window.customElements.define("story-box", story);
 window.customElements.define("profile-box", profile);
 window.customElements.define("btn-box", btn);
