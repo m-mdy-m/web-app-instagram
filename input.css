@@ -173,45 +173,22 @@
 			border-bottom-right-radius: 50px;
 		}
 	}
-	.comments {
-		/* animation: showComments 8s forwards cubic-bezier(0,-0.67, 0.13, 1.49); */
-		width: 1670%;
-			height: 90%;
-			background: #fff;
-			position: absolute;
-			top: 10%;
-			left: -1700%;
-	}
 	@keyframes showComments {
 		0% {
 			width: 24px;
 			height: 24px;
-			background: transparent;
 			position: absolute;
 		}
-		10% {
+		40%{
 			width: 24px;
 			height: 24px;
-			background: transparent;
 			position: absolute;
 			top: 10%;
-		}
-		11%{
-			left: 0%;
-			
-		}
-		50% {
-			width: 24px;
-			height: 5px;
-			background: transparent;
-			position: absolute;
-			top: 10%;
-			left: -110%;
+			left:10%;
 		}
 		60% {
 			width: 24px;
 			height: 5px;
-			background: transparent;
 			position: absolute;
 			top: 10%;
 			left: -1700%;
@@ -219,23 +196,22 @@
 		70% {
 			width: 1670%;
 			height: 5px;
-			background: transparent;
 			position: absolute;
+			background-color: transparent;
 			top: 10%;
 			left: -1700%;
 		}
 		90% {
 			width: 1670%;
 			height: 90%;
-			background: #fff;
 			position: absolute;
+			background-color: #ffffff69;
 			top: 10%;
 			left: -1700%;
 		}
 		100% {
 			width: 1670%;
 			height: 90%;
-			background: #fff;
 			position: absolute;
 			top: 10%;
 			left: -1700%;
