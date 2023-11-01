@@ -23,6 +23,7 @@ module.exports = {
 					200: "#f0edf5d3",
 					300: "#89898b",
 				},
+				
 			},
 		},
 		container: {

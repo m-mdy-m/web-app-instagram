@@ -17,7 +17,7 @@
 						<h2 class="text-5xl text-white font-mavisBold absolute scale-[.1] opacity-0">Instagram</h2>
 					</div>
 					<div class="basis-[60%] h-full  relative flex justify-start items-center">
-						<search-box class="absolute w-full" textHolder="Search page..."></search-box>	
+						<search-box class="relative w-full" textHolder="Search page..."></search-box>	
 						<!-- <img src="images/icon/search.svg" alt="search" class="absolute left-0  w-6 opacity-0 animate-opacityAnimation "> -->
 						<!-- <input type="search" placeholder="" class="border-0 rounded-lg w-full h-6 pl-7 bg-transparent outline-0 text-white SearchBox text-base capitalize opacity-0 animate-opacityAnimation" autofocus> -->
 					</div>
@@ -31,9 +31,9 @@
 					</div>
 				</div>
 				<div class="h-3/4 flex justify-center items-center relative ">
-					<!-- <div class="h-48 w-[85px] min-w-[70px] max-w-28 flex flex-col justify-between items-center relative font-aktivLight bgImage lowercase shadowBefore rounded-lg  mx-3  opacity-0 odd:animate-MoveToBottom even:animate-MoveToTop ">
+					<!-- <div class="h-48 w-[85px] min-w-[70px] max-w-28 flex flex-col justify-between items-center relative font-aktivLight bgImage object-cover lowercase shadowBefore rounded-lg  mx-3  opacity-0 odd:animate-MoveToBottom even:animate-MoveToTop ">
 						<figure class="h-full flex flex-col justify-between items-center w-full  ">
-							<img src="../images/image/image_story.jpg" alt="" class="w-full rounded-full storyLine cursor-pointer mt-2 hover:scale-[1.2] transition-all duration-1000">
+							<img src="../images/image/image_story.jpg" alt="" class="w-full rounded-full storyLine cursor-pointer mt-2 hover:scale-[1.2] transition-all duration-1000 object-contain">
 						</figure>
 						<h3 class=" text-xs text-gray-100  text-center pb-4 cursor-pointer "></h3>
 					</div> -->
@@ -49,13 +49,13 @@
 			</header>
 		</div>
 		<aside class="h-screen  fixed w-60 right-0 top-[4.5rem] ">
-				<nav-box></nav-box>
+				<nav-box ></nav-box>
 				<!-- <div class="flex justify-center items-center w-12 h-12 opacity-100 fixed right-12 bottom-12 animate-MoveToRight">
 					<img src="images/icon/face-grin-wide.svg" alt="add_circled" class="opacity-20 absolute w-16 h-12 z-20 cursor-pointer rounded-full bg-green-400" />
 					<li class="w-9 h-9 flex justify-center items-center absolute -right-full top-1/4 opacity-0 origin-[-50px] rotate-0 translate-x-12 bg-sky-[#1c91ff] " style="--i: 1">
 					</li>
 				</div>`; -->
-				<div class="linearGradient absolute right-0  rounded-2xl menuMessage w-0 h-0 opacity-0">
+				<div class="linearGradient absolute right-0  rounded-2xl menuMessage w-0 h-0 opacity-0 -z-10">
 					<div class="w-full h-12  flex justify-between items-center px-2">
 						<h1 class="capitalize font-aktivBold text-PrimaryText">messages</h1>
 						<img src="images/icon/feather-pointed.svg" alt="" class="w-5">
@@ -75,16 +75,43 @@
 								<p class="text-[#89898b] font-aktivLight text-sm -mt-2">hi</p>
 							</div>
 						</div> -->
-						<page-dir sourceProfile="images/image/image_story.jpg" namePage="m__mdy__m" bio="greats is god"   ></page-dir>
-						<page-dir sourceProfile="images/image/image_story4.jpg" namePage="_medishne_" bio="Hello!" ></page-dir>
-						<page-dir sourceProfile="images/image/image_story6.jpg" namePage="mt5" bio="Bye!"  ></page-dir>
-						<page-dir sourceProfile="images/image/image_story3.jpg" namePage="ali24" bio="hi!"  ></page-dir>
-						<page-dir sourceProfile="images/image/image_story5.jpg" namePage="abass" bio="god!"  ></page-dir>
+						<page-dir sourceProfile="images/image/image_story.jpg" namePage="m__mdy__m" bio="greats is god"></page-dir>
+						<page-dir sourceProfile="images/image/image_story4.jpg" namePage="_medishne_" bio="Hello!""></page-dir>
+						<page-dir sourceProfile="images/image/image_story6.jpg" namePage="mt5" bio="Bye!"></page-dir>
+						<page-dir sourceProfile="images/image/image_story3.jpg" namePage="ali24" bio="hi!"></page-dir>
+						<page-dir sourceProfile="images/image/image_story5.jpg" namePage="abass" bio="god!"></page-dir>
 					</div>
 				</div>
 			</aside>
 		<div class="container ">
-			<main class="flex justify-center items-center flex-col mt-10"></main>
+			<main class="w-full h-[379px] flex justify-center items-center">
+				<section class=" w-5/6 h-full flex flex-col justify-start items-center  overflow-y-scroll overflow-x-clip mt-4 z-50">
+					<!-- <div class=" w-7/12  h-[75%] relative my-4">
+						<img src="images/icon/pin.svg" alt="" class="absolute -right-2 -top-2 rotate-45 opacity-100 z-50">
+						<div class="linearGradient-100 w-full h-1/6 flex justify-between items-center rounded-t-3xl ">
+							<page-dir sourceProfile="images/image/image_story4.jpg" namePage="_medishne_" bio="Hello!"></page-dir>
+							<img src="images/icon/more-horizontal.svg" alt="" class="cursor-pointer rounded-full w-[20px] h-[20px] mr-8 hover:bg-[#c5baba98] ">
+						</div>
+						<div class=" w-full h-5/6 relative ">
+							<img src="images/image/Post.jpg" alt="" class="w-full h-full object-cover rounded-b-xl">
+							<div class="flex flex-col justify-around items-center [&>*]:cursor-pointer  w-8 h-40 linearGradient-100 absolute -right-10 bottom-6 rounded-xl linePost z-10 ">
+								<img src="images/icon/heart.svg" alt="like" >
+								<img src="images/icon/share.svg" alt="share">
+								<img src="images/icon/comments.svg" alt="comment">
+								<img src="images/icon/bookmark.svg" alt="bookmark">
+							</div>
+						</div>
+					</div> -->
+					
+					<post-box></post-box> 
+					<post-box></post-box>
+					<post-box></post-box>
+					<post-box></post-box>
+					<post-box></post-box>
+					<post-box></post-box>
+				</section>
+			</main>
+			
 		</div>
 		<script type="module" src="scripts/scripts.js"></script>
 	</body>
