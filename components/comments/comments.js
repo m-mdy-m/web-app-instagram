@@ -25,28 +25,6 @@ class comments extends HTMLElement {
 		this.shadowRoot.querySelector("h3").innerHTML = this.getAttribute("namePage");
 		this.shadowRoot.querySelector("img").setAttribute("src", this.getAttribute("profile"));
 	}
-
-	// static show(icon = "", boxComment = "") {
-	// 	let iconComment = icon;
-	// 	let boxComments = boxComment;
-	// 	let comment = new comments
-
-	// 	let allComments = comment.templateComments()
-	// 	let show = false;
-	// 	iconComment.addEventListener("click", () => {
-	// 		if (show) {
-	// 			allComments.style.cssText =
-	// 				"opacity:0;transition: all .5s; animation:none;";
-	// 			show = false;
-				
-	// 		} else {
-	// 			setTimeout(() => {
-	// 				allComments.style.cssText =
-	// 					"opacity:1;transition: all 3s; animation:MoveToBottom 1s forwards cubic-bezier(0,-0.67, 0.13, 1.49);";
-	// 			}, 2500);
-	// 		}
-	// 	});
-	// }
 	static observedAttributes() {
 		return ["comment", "namePage", "profile"];
 	}
