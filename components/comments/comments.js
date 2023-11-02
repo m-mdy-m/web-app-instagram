@@ -31,24 +31,3 @@ class comment extends HTMLElement {
 	}
 }
 export { comment };
-
-let iconComment = document.getElementById('comment')
-let boxComments = document.querySelector('.boxComments')
-let allComments = template.content.querySelector('.allComments');
-let show = false
-iconComment.addEventListener('click',()=>{
-	if (show) {
-		boxComments.style.cssText=`
-		animation:none;
-		width: 24px;
-		height: 24px;
-		position: absolute;
-		top: 53%;
-		left:14%;`
-		show = false;
-	  } else {
-		boxComments.style.animation = "showComments 8s forwards cubic-bezier(0,-0.67, 0.13, 1.49)";
-		allComments.style.opacity="1";
-		show = true;
-	  }
-})
