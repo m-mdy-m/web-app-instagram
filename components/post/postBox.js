@@ -1,8 +1,4 @@
-import * as comments from "../comments/comments.js";
-console.log(comments);
-console.log(comments.innerHTML);
-
-
+import { comments } from "../comments/comments.js";
 const template = document.createElement("template");
 template.innerHTML = `
 	<link rel="stylesheet" href="style/style.css" />
@@ -19,14 +15,13 @@ template.innerHTML = `
 								<img src="images/icon/share.svg" alt="share" id="share"  class='mb-10'>
 								<div class="boxComments  w-[24px] h-[24px] !cursor-default -z-30 rounded-t-xl flex justify-between items-end absolute top-[53%] left-[14%]">
 									<img src="images/icon/comments.svg" alt="comment" id="comment" class="w-6 h-6 cursor-pointer  ">
-									<comment-box comment="this is great photo  sit! Veritatis autem voluptatum, quia praesentium iure inventore." profile="images/image/image_story2.jpg" namePage="medishn"></comment-box>
-									<comment-box comment="its beuteful" profile="images/image/image_story6.jpg" namePage="m__mdy__m"></comment-box>
-									<comment-box comment="oohh what is location" profile="images/image/image_story2.jpg" namePage="deleteHistory"></comment-box>
+									
 								</div>
 								<img src="images/icon/bookmark.svg" alt="bookmark" id="bookmark" >
 							</div>
 						</div>
 					</div>`;
+
 class postBox extends HTMLElement {
 	constructor() {
 		super();
@@ -40,13 +35,20 @@ class postBox extends HTMLElement {
 			.querySelector("img")
 			.setAttribute("src", this.getAttribute("pin"));
 		postImg.setAttribute("src", this.getAttribute("post"));
+
 		let page = this.shadowRoot.querySelector("page-dir");
-		const imagePage = page.shadowRoot.querySelector("img");
-		const namePage = page.shadowRoot.querySelector("h3");
-		const bioPage = page.shadowRoot.querySelector("p");
-		namePage.innerHTML = this.getAttribute("namePage");
-		imagePage.setAttribute("src", this.getAttribute("profile"));
-		bioPage.innerHTML = this.getAttribute("bio");
+		let imagePage = page.shadowRoot.querySelector("img");
+		let namePage = page.shadowRoot.querySelector("h3");
+		let bioPage = page.shadowRoot.querySelector("p");
+		namePage = namePage.innerHTML = this.getAttribute("namePage");
+		imagePage = imagePage.setAttribute("src", this.getAttribute("profile"));
+		bioPage = bioPage.innerHTML = this.getAttribute("bio");
+
+		this.createBoxComments(
+			this.getAttribute("comment"),
+			this.getAttribute("profileComments"),
+			this.getAttribute("profileName")
+		);
 
 		function toggleImage(element, src, newSrc) {
 			let isToggled = false;
@@ -61,7 +63,6 @@ class postBox extends HTMLElement {
 				}
 			});
 		}
-
 		const like = this.shadowRoot.getElementById("like");
 		toggleImage(like, "images/icon/like.svg", "images/icon/likeAdd.svg");
 
@@ -71,63 +72,84 @@ class postBox extends HTMLElement {
 			"images/icon/bookmark.svg",
 			"images/icon/bookmark-slash.svg"
 		);
-		let iconComment = this.shadowRoot.getElementById("comment");
-		let boxComments = this.shadowRoot.querySelector(".boxComments");
-		// let commentBox = this.shadowRoot.querySelector("comment-box");
-		// let allComments =commentBox
-		const allComments = document.querySelector(
-			"comment-box > div:first-child"
-		);
+	}
+	// show() {
 
+	// }
+	createBoxComments(comment, profile, namePage) {
+		let myComments = document.createElement("comments-box");
+		myComments.setAttribute("comment", comment);
+		myComments.setAttribute("profile", profile);
+		myComments.setAttribute("namePage", namePage);
+		let created = 0;
+		let boxComments = this.shadowRoot.querySelector(".boxComments");
+		let icon = this.shadowRoot.getElementById("comment");
+		// comment="oohh what is location" profile="images/image/image_story2.jpg" namePage="deleteHistory"
 		let show = false;
-		iconComment.addEventListener("click", () => {
+		let commentElements = new comments();
+		let allComments = commentElements.templateComments();
+		icon.addEventListener("click", () => {
+			created++;
 			if (show) {
 				boxComments.style.cssText = `
-				animation:none;
-				width: 24px;
-				height: 24px;
-				position: absolute;
-				top: 53%;
-				left:14%;
-				animation: MoveToRight 2s forwards cubic-bezier(0,-0.67, 0.13, 1.49);`;
+					animation:none;
+					width: 24px;
+					height: 24px;
+					position: absolute;
+					top: 53%;
+					left:14%;
+					animation: MoveToRight 2s forwards cubic-bezier(0,-0.67, 0.13, 1.49);`;
 				allComments.style.cssText =
 					"opacity:0;transition: all .5s; animation:none;";
-				show = false;
-				iconComment.setAttribute("src", "images/icon/comments.svg");
+				icon.setAttribute("src", "images/icon/comments.svg");
+				myComments.remove();
+				console.log(created);
+				console.log(show);
 				boxComments.addEventListener("animationend", () => {
-					iconComment.setAttribute("src", "images/icon/comments.svg");
-					iconComment.style.cssText = `
-					top:auto-;
-					transition: all 3s;
-					position: relative;
-					z-index: 50;`;
+					icon.setAttribute("src", "images/icon/comments.svg");
+					icon.style.cssText = `
+						top:auto;
+						transition: all 3s;
+						position: relative;
+						z-index: 50;`;
 				});
+				show = false;
 			} else {
 				boxComments.style.animation =
 					"showComments 3s forwards cubic-bezier(0,-0.67, 0.13, 1.49)";
-				show = true;
 				setTimeout(() => {
 					allComments.style.cssText =
 						"opacity:1;transition: all 3s; animation:MoveToBottom 1s forwards cubic-bezier(0,-0.67, 0.13, 1.49);";
 				}, 2500);
-				iconComment.setAttribute("src", "images/icon/comments.svg");
+				icon.setAttribute("src", "images/icon/comments.svg");
 
 				boxComments.addEventListener("animationend", () => {
-					iconComment.style.cssText = `
-					position: absolute;
-					top:0;
-					transition: all 3s;`;
-					iconComment.setAttribute(
-						"src",
-						"images/icon/close_circled.svg"
-					);
+					icon.style.cssText = `
+						position: absolute;
+						top:0;
+						transition: all 3s;`;
+					icon.setAttribute("src", "images/icon/close_circled.svg");
 				});
+				boxComments.appendChild(myComments);
+				if (created > 3) {
+					this.shadowRoot.querySelector("comments-box").remove();
+					created--;
+				}
+				show = true;
 			}
 		});
 	}
-
 	static observedAttributes() {
-		return ["post", "profile", "bio", "namePage", "pin"];
+		return [
+			"post",
+			"profile",
+			"bio",
+			"namePage",
+			"pin",
+			"comment",
+			"profileComments",
+			"profileName",
+		];
 	}
 }
 export { postBox };

@@ -171,7 +171,15 @@
 			left: 13px;
 			bottom: -10px;
 			border-bottom-right-radius: 50px;
+			
 		}
+	}
+	.comments{
+		width: 1670%;
+			height: 90%;
+			position: absolute;
+			top: 10%;
+			left: -1700%;
 	}
 	@keyframes showComments {
 		0% {
