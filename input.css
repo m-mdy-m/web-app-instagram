@@ -32,7 +32,7 @@
 		width: 3.5rem;
 		height: 3.5rem;
 		padding: 2px;
-		
+
 		background: radial-gradient(
 				circle farthest-corner at 35% 90%,
 				#fec564,
@@ -171,38 +171,119 @@
 			left: 13px;
 			bottom: -10px;
 			border-bottom-right-radius: 50px;
-			
 		}
 	}
-	.comments{
+	.comments {
 		width: 1670%;
-			height: 90%;
-			position: absolute;
-			top: 10%;
-			left: -1700%;
-			background-color: #fff;
+		height: 90%;
+		position: absolute;
+		top: 10%;
+		left: -1700%;
+		background-color: #fff;
 	}
-	.addComment{
-		background-image: url('../images/icon/add_circled.svg');
+	.addComment {
+		background-image: url("../images/icon/add_circled.svg");
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
-		
-		
 	}
-	
+	.alert {
+		background-image: radial-gradient(
+			circle,
+			#5570d1,
+			#4973c5,
+			#4574b7,
+			#4875a8,
+			#4f7499,
+			#527598,
+			#557598,
+			#587697,
+			#5878a4,
+			#5c79b1,
+			#6578bc,
+			#7377c6
+		);
+	}
+	.alertAnimation {
+		animation: alert 2s forwards cubic-bezier(0, -0.67, 0.13, 1.49);
+	}
+	@keyframes alert {
+		0% {
+			transform: translateX(-200px) translateY(0px);
+		}
+		10% {
+			transform: translateY(2px) scale(1);
+			transition: all 2s;
+			background-image: radial-gradient(
+				circle,
+				#5570d1,
+				#4973c5,
+				#4574b7,
+				#4875a8,
+				#4f7499,
+				#527598,
+				#557598,
+				#587697,
+				#5878a4,
+				#5c79b1,
+				#6578bc,
+				#7377c6
+			);
+		}
+		40% {
+			transform: translateY(-2px) scale(1.05);
+			transition: all 2s;
+			background-image: radial-gradient(
+				circle,
+				#601d1d,
+				#701e1f,
+				#802020,
+				#902021,
+				#a12122,
+				#a02021,
+				#9e1f20,
+				#9d1e1f,
+				#8a1c1d,
+				#77191a,
+				#651717,
+				#531414
+			);
+		}
+		50% {
+			transform: translateY(1px) scale(1);
+			transition: all 2s;
+			background-image: radial-gradient(
+				circle,
+				#5570d1,
+				#4973c5,
+				#4574b7,
+				#4875a8,
+				#4f7499,
+				#527598,
+				#557598,
+				#587697,
+				#5878a4,
+				#5c79b1,
+				#6578bc,
+				#7377c6
+			);
+		}
+		100% {
+			transform: translateX(0px) translateY(0px);
+		}
+	}
 	@keyframes showComments {
 		0% {
 			width: 24px;
 			height: 24px;
 			position: absolute;
 		}
-		40%{
+		40% {
 			width: 24px;
 			height: 24px;
 			position: absolute;
 			top: 10%;
-			left:10%;
+			left: 10%;
 		}
 		60% {
 			width: 24px;

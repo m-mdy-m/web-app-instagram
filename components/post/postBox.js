@@ -1,8 +1,9 @@
 import { comments } from "../comments/comments.js";
+import { alertBox } from "../alert/alert.js";
 const template = document.createElement("template");
 template.innerHTML = `
 	<link rel="stylesheet" href="style/style.css" />
-    <div class=" w-[35rem] min-w-[35rem]  h-96 relative my-4  mx-auto ">
+    <div class=" w-[35rem] min-w-[35rem]  h-96 relative my-4  mx-auto z-10 ">
 						<img src="images/icon/pin.svg" alt="" class="absolute -right-2 -top-2 rotate-45 opacity-100 z-50">
 						<div class="linearGradient-100 w-full h-1/6 flex justify-between items-center rounded-t-3xl ">
 							<page-dir sourceProfile="images/image/image_story4.jpg" namePage="_medishne_" bio="Hello!"></page-dir>
@@ -87,10 +88,15 @@ class postBox extends HTMLElement {
 		let img = this.shadowRoot.getElementById("profileComment");
 		let wrapperFile = this.shadowRoot.querySelector("label");
 		let created = 0;
-		
-		this.createBoxComments()
+		let commentElements = new comments();
+		let allComments = commentElements.templateComments();
 		let icon = this.shadowRoot.getElementById("comment");
-		
+		let alertELm = document.createElement('alert-box')
+		function alertContent(texAlert,alertDis){
+			alertELm.setAttribute("texAlert",texAlert)
+			alertELm.setAttribute("alert",alertDis)
+			document.body.appendChild(alertELm)
+		}
 		btn.addEventListener("click", () => {
 			setTimeout(() => {
 				wrapperNew.style.cssText = "display:flex;";
@@ -100,30 +106,50 @@ class postBox extends HTMLElement {
 					wrapperFile.style.display = "none";
 				});
 			}, 500);
-		});
-		window.addEventListener("keypress", event => {
-			if (event.keyCode === 13) {
-				let newComment = textarea.value;
-				let username = userName.value;
-				let profile = img.src;
-				let boxComments = this.shadowRoot.querySelector(".boxComments");
-				textarea.value = "";
-				userName.value = "";
-				img.src = "";
-				img.style.display = "none";
-				wrapperFile.style.display = "block";
-				wrapperNew.style.display = "none";
-				let myComment = document.createElement('comments-box')
-				myComment.setAttribute("comment", newComment);
-				myComment.setAttribute("profile", profile);
-				myComment.setAttribute("namePage", username);
-				boxComments.appendChild(myComment);
-				created++
-				if (created > 3) {
-					this.shadowRoot.querySelector("comments-box").remove();
-					created--;
-				}
-			} 
+			window.addEventListener("keypress", event => {
+				if (event.keyCode === 13) {
+					let newComment
+					if(textarea.value !=='') newComment = textarea.value ;
+					let username ;
+					// = if userName.value.trim()!==""
+					if(userName.value!=="") username = userName.value ;
+					let profile;
+					if(img.src!=="") profile = img.src ;
+					let boxComments = this.shadowRoot.querySelector(".boxComments");
+					textarea.value = "";
+					userName.value = "";
+					img.src = "";
+					let content = [newComment,username,profile]
+					
+					img.style.display = "none";
+					wrapperFile.style.display = "block";
+					wrapperNew.style.display = "none";
+					let myComment = document.createElement('comments-box')
+					if (content[0] !== undefined && content[1] !== undefined && content[2] !==undefined){
+						myComment.setAttribute("comment", content[0]);
+						myComment.setAttribute("profile", content[2]);
+						myComment.setAttribute("namePage", content[1]);
+						boxComments.appendChild(myComment);
+						created++
+					}else{
+						if(content[0] === undefined){
+							alertContent("Please complete the comment box!","Why didn't you comment!!😐")
+						}else if(content[2] === undefined){
+							alertContent("Are you ugly!? 🤭!","Why didn't you take a picture of yourself??😤")
+						}else if(content[1] === undefined){
+							alertContent("Do you want me to tell you your name? Donkey!! 🤭","Don't you have a name?😢")
+						}
+					}
+					if (created > 3) {
+						this.shadowRoot.querySelector("comments-box").remove();
+						created--;
+					}
+					icon.addEventListener('click',()=>{
+						console.log('click');
+					})
+					
+				} 
+			});
 		});
 		
 	}
@@ -131,8 +157,6 @@ class postBox extends HTMLElement {
 		let boxComments = this.shadowRoot.querySelector(".boxComments");
 		let icon = this.shadowRoot.getElementById("comment");
 		let show = false;
-		let commentElements = new comments();
-		let allComments = commentElements.templateComments();
 		let btn = this.shadowRoot.querySelector(".addComment");
 		icon.addEventListener("click", () => {
 			if (show) {
@@ -144,8 +168,8 @@ class postBox extends HTMLElement {
 			  top: 53%;
 			  left:14%;
 			  animation: MoveToRight 2s forwards cubic-bezier(0,-0.67, 0.13, 1.49);`;
-				allComments.style.cssText =
-					"opacity:0;transition: all .5s; animation:none; display:none;";
+				// allComments.style.cssText =
+				// 	"opacity:0;transition: all .5s; animation:none; display:none;";
 				boxComments.addEventListener("animationend", () => {
 					icon.setAttribute("src", "images/icon/comments.svg");
 					icon.style.cssText = `
@@ -160,7 +184,7 @@ class postBox extends HTMLElement {
 				boxComments.style.animation =
 					"showComments 3s forwards cubic-bezier(0,-0.67, 0.13, 1.49)";
 				setTimeout(() => {
-					allComments.style.cssText = `display:flex; opacity:1; transition: display:flex; all 3s; animation:MoveToBottom 1s forwards cubic-bezier(0,-0.67, 0.13, 1.49);`;
+					// allComments.style.cssText = `display:flex; opacity:1; transition: display:flex; all 3s; animation:MoveToBottom 1s forwards cubic-bezier(0,-0.67, 0.13, 1.49);`;
 					btn.style.cssText = ` opacity:1; display:inline-block; transition: all 2s;
 			  `;
 				}, 3500);
