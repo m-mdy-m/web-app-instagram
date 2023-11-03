@@ -32,7 +32,7 @@
 		width: 3.5rem;
 		height: 3.5rem;
 		padding: 2px;
-
+		
 		background: radial-gradient(
 				circle farthest-corner at 35% 90%,
 				#fec564,
@@ -171,51 +171,38 @@
 			left: 13px;
 			bottom: -10px;
 			border-bottom-right-radius: 50px;
+			
 		}
 	}
-	.comments {
+	.comments{
 		width: 1670%;
-		height: 90%;
-		position: absolute;
-		top: 10%;
-		left: -1700%;
-		background-color: #fff;
+			height: 90%;
+			position: absolute;
+			top: 10%;
+			left: -1700%;
+			background-color: #fff;
 	}
-	.addComment {
-		background-image: url("../images/icon/add_circled.svg");
+	.addComment{
+		background-image: url('../images/icon/add_circled.svg');
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
+		
+		
 	}
-	.focusInput {
-		position: relative;
-	}
-	.focusInput:focus {
-		outline: 0;
-		position: absolute;
-		top: -10px;
-		left: 0;
-		border: 2px solid red;
-	}
-	.focusInput:focus::before {
-		content: "";
-		position: absolute;
-		top: -10px;
-		left: 0;
-		border: 2px solid red;
-	}
+	
 	@keyframes showComments {
 		0% {
 			width: 24px;
 			height: 24px;
 			position: absolute;
 		}
-		40% {
+		40%{
 			width: 24px;
 			height: 24px;
 			position: absolute;
 			top: 10%;
-			left: 10%;
+			left:10%;
 		}
 		60% {
 			width: 24px;

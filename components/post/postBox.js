@@ -8,14 +8,23 @@ template.innerHTML = `
 							<page-dir sourceProfile="images/image/image_story4.jpg" namePage="_medishne_" bio="Hello!"></page-dir>
 							<img src="images/icon/more-horizontal.svg" alt="" class="cursor-pointer rounded-full w-[20px] h-[20px] mr-8 hover:bg-[#c5baba98] ">
 						</div>
-						<div class=" w-full h-5/6 relative ">
+						<div class="  w-full h-5/6 relative ">
 							<img src="images/image/Post.jpg" alt="" class="postImg w-full h-full object-cover rounded-b-xl ">
 							<div class=" flex flex-col justify-around items-center [&>*]:cursor-pointer  w-8 h-40 linearGradient-100 absolute -right-10 bottom-6 rounded-xl linePost z-10 ">
 								<img src="images/icon/like.svg" alt="like"  id="like" >
 								<img src="images/icon/share.svg" alt="share" id="share"  class='mb-10'>
-								<div class="boxComments  w-[24px] h-[24px] !cursor-default -z-30 rounded-t-xl flex justify-between items-end absolute top-[53%] left-[14%]">
+								<div class="boxComments w-[24px] h-[24px] !cursor-default -z-30 rounded-t-xl flex justify-between items-end absolute top-[53%] left-[14%]">
+									<button class="addComment opacity-0 hidden w-6 h-6 rounded-full absolute right-6 top-0 hover:bg-[#4397b1]"></button>
+									<div id="wrapperNew" class="animate-opacityAnimation flex-col hidden justify-center items-center opacity-100 w-full [&>*]:px-2 [&>*]:py-2 h-full rounded-lg bg-[#3e3939d0] ">
+										<textarea class="h-3/4 w-full !pl-7 textArea resize-none overflow-y-hidden lowercase leading-5 text-xl focusInput text-start font-aktivLight text-PrimaryText-100 bg-transparent outline-0 border-0"></textarea>
+										<div class="w-full h-1/4 flex justify-start   items-center   ">
+											<img src="images/image/image_story2.jpg"  alt="profile" id="profileComment" class="hidden w-8 h-8 object-contain cursor-pointer  bg-black rounded-full border border-solid opacity-100 animate-opacityAnimation border-x-cyan-950 border-y-cyan-700 hover:border-cyan-700 transition-all duration-400 hover:border-2">
+											<label for="selectFile" class="opacity-100 cursor-pointer w-24 h-full object-contain text-center capitalize text-white font-aktivRegular flex justify-center items-center rounded-md text-sm whitespace-nowrap bg-black border border-solid  animate-opacityAnimation border-x-teal-400 border-y-red-500 hover:border-red-700 transition-all duration-400 hover:border-2">select img</label>
+											<input type="file" required accept="image/jpg,image/png ,image/jpeg" class="hidden" id="selectFile">
+											<input type="text" id="userName" autofocus required placeholder="user name:" class="font-aktivLight foc  rounded-r-md text-PrimaryText !bg-transparent capitalize text-xs outline-0 border-0 pl-2 h-full w-2/3"> 
+										</div>
+									</div>
 									<img src="images/icon/comments.svg" alt="comment" id="comment" class="w-6 h-6 cursor-pointer  ">
-									
 								</div>
 								<img src="images/icon/bookmark.svg" alt="bookmark" id="bookmark" >
 							</div>
@@ -49,7 +58,8 @@ class postBox extends HTMLElement {
 			this.getAttribute("profileComments"),
 			this.getAttribute("profileName")
 		);
-
+		this.addComment()
+		
 		function toggleImage(element, src, newSrc) {
 			let isToggled = false;
 
@@ -73,9 +83,33 @@ class postBox extends HTMLElement {
 			"images/icon/bookmark-slash.svg"
 		);
 	}
-	// show() {
-
-	// }
+	addComment(newComment,profile,username){
+		let wrapperNew = this.shadowRoot.getElementById('wrapperNew')
+		let btn = this.shadowRoot.querySelector('.addComment')
+		let textarea = this.shadowRoot.querySelector('textarea')
+		let userName = this.shadowRoot.getElementById('userName')
+		let selectFile = this.shadowRoot.getElementById('selectFile')
+		let img = this.shadowRoot.getElementById('profileComment')
+		let wrapperFile = this.shadowRoot.querySelector('label')
+		let content = false
+		btn.addEventListener('click',()=>{
+			setTimeout(() => {
+				wrapperNew.style.cssText='display:flex;'
+				selectFile.addEventListener('change',()=>{	
+					img.src = URL.createObjectURL(selectFile.files[0])
+					img.style.display = 'inline-block'
+					wrapperFile.style.display ='none'
+				})
+			}, 500);
+		})
+		window.addEventListener('keypress',(event)=>{
+			if (event.keyCode === 13) {
+				console.log('enter');
+			}else{
+				console.log('false');
+			}
+		})
+	}
 	createBoxComments(comment, profile, namePage) {
 		let myComments = document.createElement("comments-box");
 		myComments.setAttribute("comment", comment);
@@ -88,6 +122,7 @@ class postBox extends HTMLElement {
 		let show = false;
 		let commentElements = new comments();
 		let allComments = commentElements.templateComments();
+		let btn = this.shadowRoot.querySelector('.addComment')
 		icon.addEventListener("click", () => {
 			created++;
 			if (show) {
@@ -113,14 +148,25 @@ class postBox extends HTMLElement {
 						position: relative;
 						z-index: 50;`;
 				});
+				btn.style.cssText=
+					`
+					opacity:0;
+					display:none;
+					transition: all .5s;
+					`
 				show = false;
 			} else {
 				boxComments.style.animation =
 					"showComments 3s forwards cubic-bezier(0,-0.67, 0.13, 1.49)";
 				setTimeout(() => {
-					allComments.style.cssText =
-						"opacity:1;transition: all 3s; animation:MoveToBottom 1s forwards cubic-bezier(0,-0.67, 0.13, 1.49);";
-				}, 2500);
+					allComments.style.cssText=`display:flex;;opacity:1;transition: all 3s; animation:MoveToBottom 1s forwards cubic-bezier(0,-0.67, 0.13, 1.49);`;
+					btn.style.cssText=
+					`
+					opacity:1;
+					display:inline-block;
+					transition: all 2s;
+					`
+				}, 3500);
 				icon.setAttribute("src", "images/icon/comments.svg");
 
 				boxComments.addEventListener("animationend", () => {
