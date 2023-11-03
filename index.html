@@ -97,10 +97,10 @@
 							<div class=" flex flex-col justify-around items-center [&>*]:cursor-pointer  w-8 h-40 linearGradient-100 absolute -right-10 bottom-6 rounded-xl linePost z-10 ">
 								<img src="images/icon/like.svg" alt="like"  id="like" >
 								<img src="images/icon/share.svg" alt="share" id="share"  class='mb-10'>
-								<div class="boxComments comments w-[24px] h-[24px] !cursor-default -z-30 rounded-t-xl flex justify-between items-end absolute top-[53%] left-[14%]">
-									<button class="addComment opacity-100  w-6 h-6 rounded-full absolute right-6 top-0 hover:bg-[#4397b1]"></button>
-									<div id="wrapperNew" class="animate-opacityAnimation flex-col flex justify-center items-center opacity-100 w-full [&>*]:px-2 [&>*]:py-2 h-full rounded-lg bg-[#3e3939d0] ">
-										<textarea class="h-3/4 w-full !pl-7 textArea resize-none overflow-y-hidden lowercase leading-5 text-xl focusInput text-start font-aktivLight text-PrimaryText-100 bg-transparent outline-0 border-0"></textarea>
+								<div class="boxComments  w-[24px] h-[24px] !cursor-default -z-30 rounded-t-xl flex justify-between items-end absolute top-[53%] left-[14%]">
+									<button class="addComment opacity-0 hidden w-6 h-6 rounded-full absolute right-6 top-0 hover:bg-[#4397b1]"></button>
+									<div id="wrapperNew" class="animate-opacityAnimation flex-col hidden justify-center items-center opacity-100 w-full [&>*]:px-2 [&>*]:py-2 h-full rounded-lg bg-[#3e3939d0] ">
+										<textarea class="h-3/4 w-full !pl-7 textArea resize-none  lowercase leading-5 text-xl focusInput text-start font-aktivLight text-PrimaryText-100 bg-transparent outline-0 border-0"></textarea>
 										<div class="w-full h-1/4 flex justify-start   items-center   ">
 											<img src="images/image/image_story2.jpg"  alt="profile" id="profileComment" class="hidden w-8 h-8 object-contain cursor-pointer  bg-black rounded-full border border-solid opacity-100 animate-opacityAnimation border-x-cyan-950 border-y-cyan-700 hover:border-cyan-700 transition-all duration-400 hover:border-2">
 											<label for="selectFile" class="opacity-100 cursor-pointer w-24 h-full object-contain text-center capitalize text-white font-aktivRegular flex justify-center items-center rounded-md text-sm whitespace-nowrap bg-black border border-solid  animate-opacityAnimation border-x-teal-400 border-y-red-500 hover:border-red-700 transition-all duration-400 hover:border-2">select img</label>
@@ -114,8 +114,14 @@
 							</div>
 						</div>
 					</div> -->
-					
-					<post-box post="images/image/Post.jpg" profile="images/image/image_story2.jpg"  bio="greats"namePage="m__mdy__m" pin="images/icon/pin.svg" comment="hi this is test its god beuteful my name is mahdi ahmad ho3ian" profileComments="images/image/image_story2.jpg" profileName="mdy"></post-box> 
+					<!-- <div class=" w-36 h-auto allComments [&>*]:px-2 [&>*]:py-1 bg-[#3e3939d0] rounded-xl flex flex-col justify-between items-center">
+						<p class="text-[10px] leading-3 font-aktivLight text-PrimaryText-100 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam autem sequi suscipit sit! Veritatis autem voluptatum, quia praesentium iure inventore.</p>
+						<div class="w-full flex justify-start items-center  bg-[#0000009c] rounded-b-xl">
+							<img src="images/image/image_story2.jpg" alt="profile" class="w-8 h-8 object-contain cursor-pointer  bg-black rounded-full border border-solid opacity-0 animate-opacityAnimation border-x-cyan-950 border-y-cyan-700 hover:border-cyan-700 transition-all duration-400 hover:border-2 ">
+							<h3 class=" font-aktivLight text-PrimaryText text-[10px] ml-2">m__mdy__m</h3>
+						</div>
+					</div> -->
+					<post-box post="images/image/Post.jpg" profile="images/image/image_story2.jpg"  bio="greats"namePage="m__mdy__m" pin="images/icon/pin.svg"></post-box> 
 					<!-- <post-box post="images/image/Post2.jpg" profile="images/image/image_story3.jpg" bio="Hello"  namePage="_medishne_" pin=""></post-box> -->
 					<!-- <post-box post="images/image/Post3.jpg" profile="images/image/image_story6.jpg"  bio="Bye" namePage="mt5" pin=""></post-box> -->
 					<!-- <post-box post="images/image/Post4.jpg" profile="images/image/image_story4.jpg" bio="hi" namePage="ali24"  pin=""></post-box> -->

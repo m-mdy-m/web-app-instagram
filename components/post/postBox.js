@@ -16,7 +16,7 @@ template.innerHTML = `
 								<div class="boxComments w-[24px] h-[24px] !cursor-default -z-30 rounded-t-xl flex justify-between items-end absolute top-[53%] left-[14%]">
 									<button class="addComment opacity-0 hidden w-6 h-6 rounded-full absolute right-6 top-0 hover:bg-[#4397b1]"></button>
 									<div id="wrapperNew" class="animate-opacityAnimation flex-col hidden justify-center items-center opacity-100 w-full [&>*]:px-2 [&>*]:py-2 h-full rounded-lg bg-[#3e3939d0] ">
-										<textarea class="h-3/4 w-full !pl-7 textArea resize-none overflow-y-hidden lowercase leading-5 text-xl focusInput text-start font-aktivLight text-PrimaryText-100 bg-transparent outline-0 border-0"></textarea>
+										<textarea class="h-3/4 w-full !pl-7 textArea resize-none  lowercase leading-5 text-xl focusInput text-start font-aktivLight text-PrimaryText-100 bg-transparent outline-0 border-0"></textarea>
 										<div class="w-full h-1/4 flex justify-start   items-center   ">
 											<img src="images/image/image_story2.jpg"  alt="profile" id="profileComment" class="hidden w-8 h-8 object-contain cursor-pointer  bg-black rounded-full border border-solid opacity-100 animate-opacityAnimation border-x-cyan-950 border-y-cyan-700 hover:border-cyan-700 transition-all duration-400 hover:border-2">
 											<label for="selectFile" class="opacity-100 cursor-pointer w-24 h-full object-contain text-center capitalize text-white font-aktivRegular flex justify-center items-center rounded-md text-sm whitespace-nowrap bg-black border border-solid  animate-opacityAnimation border-x-teal-400 border-y-red-500 hover:border-red-700 transition-all duration-400 hover:border-2">select img</label>
@@ -53,17 +53,8 @@ class postBox extends HTMLElement {
 		imagePage = imagePage.setAttribute("src", this.getAttribute("profile"));
 		bioPage = bioPage.innerHTML = this.getAttribute("bio");
 
-		this.createBoxComments(
-			this.getAttribute("comment"),
-			this.getAttribute("profileComments"),
-			this.getAttribute("profileName")
-		);
-		
-		addComment(newComment, profile, username)
-    // Your existing code for adding comments goes here
-	
-		
-
+		this.createBoxComments();
+		this.addComment();
 		function toggleImage(element, src, newSrc) {
 			let isToggled = false;
 
@@ -87,7 +78,7 @@ class postBox extends HTMLElement {
 			"images/icon/bookmark-slash.svg"
 		);
 	}
-	addComment(newComment, profile, username) {
+	addComment() {
 		let wrapperNew = this.shadowRoot.getElementById("wrapperNew");
 		let btn = this.shadowRoot.querySelector(".addComment");
 		let textarea = this.shadowRoot.querySelector("textarea");
@@ -95,6 +86,11 @@ class postBox extends HTMLElement {
 		let selectFile = this.shadowRoot.getElementById("selectFile");
 		let img = this.shadowRoot.getElementById("profileComment");
 		let wrapperFile = this.shadowRoot.querySelector("label");
+		let created = 0;
+		
+		this.createBoxComments()
+		let icon = this.shadowRoot.getElementById("comment");
+		
 		btn.addEventListener("click", () => {
 			setTimeout(() => {
 				wrapperNew.style.cssText = "display:flex;";
@@ -107,21 +103,31 @@ class postBox extends HTMLElement {
 		});
 		window.addEventListener("keypress", event => {
 			if (event.keyCode === 13) {
-				newComment = textarea.value;
-      			username = userName.value;
-      			profile = img.src;
-      			return [newComment, username, profile];
-			} else {
-				console.log("type...");
-			}
+				let newComment = textarea.value;
+				let username = userName.value;
+				let profile = img.src;
+				let boxComments = this.shadowRoot.querySelector(".boxComments");
+				textarea.value = "";
+				userName.value = "";
+				img.src = "";
+				img.style.display = "none";
+				wrapperFile.style.display = "block";
+				wrapperNew.style.display = "none";
+				let myComment = document.createElement('comments-box')
+				myComment.setAttribute("comment", newComment);
+				myComment.setAttribute("profile", profile);
+				myComment.setAttribute("namePage", username);
+				boxComments.appendChild(myComment);
+				created++
+				if (created > 3) {
+					this.shadowRoot.querySelector("comments-box").remove();
+					created--;
+				}
+			} 
 		});
+		
 	}
-	createBoxComments(comment, profile, namePage) {
-		let myComments = document.createElement("comments-box");
-		myComments.setAttribute("comment", comment);
-		myComments.setAttribute("profile", profile);
-		myComments.setAttribute("namePage", namePage);
-		let created = 0;
+	createBoxComments() {
 		let boxComments = this.shadowRoot.querySelector(".boxComments");
 		let icon = this.shadowRoot.getElementById("comment");
 		let show = false;
@@ -129,76 +135,46 @@ class postBox extends HTMLElement {
 		let allComments = commentElements.templateComments();
 		let btn = this.shadowRoot.querySelector(".addComment");
 		icon.addEventListener("click", () => {
-			created++;
 			if (show) {
 				boxComments.style.cssText = `
-					animation:none;
-					width: 24px;
-					height: 24px;
-					position: absolute;
-					top: 53%;
-					left:14%;
-					animation: MoveToRight 2s forwards cubic-bezier(0,-0.67, 0.13, 1.49);`;
+			  animation:none;
+			  width: 24px;
+			  height: 24px;
+			  position: absolute;
+			  top: 53%;
+			  left:14%;
+			  animation: MoveToRight 2s forwards cubic-bezier(0,-0.67, 0.13, 1.49);`;
 				allComments.style.cssText =
-					"opacity:0;transition: all .5s; animation:none;";
-				icon.setAttribute("src", "images/icon/comments.svg");
-				myComments.remove();
-				console.log(created);
-				console.log(show);
+					"opacity:0;transition: all .5s; animation:none; display:none;";
 				boxComments.addEventListener("animationend", () => {
 					icon.setAttribute("src", "images/icon/comments.svg");
 					icon.style.cssText = `
-						top:auto;
-						transition: all 3s;
-						position: relative;
-						z-index: 50;`;
+				top:auto;
+				transition: all 3s;
+				position: relative;
+				z-index: 50;`;
 				});
-				btn.style.cssText = `
-					opacity:0;
-					display:none;
-					transition: all .5s;
-					`;
+				btn.style.cssText = ` opacity:0; display:none; transition: all .5s`;
 				show = false;
 			} else {
 				boxComments.style.animation =
 					"showComments 3s forwards cubic-bezier(0,-0.67, 0.13, 1.49)";
 				setTimeout(() => {
-					allComments.style.cssText = `display:flex;;opacity:1;transition: all 3s; animation:MoveToBottom 1s forwards cubic-bezier(0,-0.67, 0.13, 1.49);`;
-					btn.style.cssText = `
-					opacity:1;
-					display:inline-block;
-					transition: all 2s;
-					`;
+					allComments.style.cssText = `display:flex; opacity:1; transition: display:flex; all 3s; animation:MoveToBottom 1s forwards cubic-bezier(0,-0.67, 0.13, 1.49);`;
+					btn.style.cssText = ` opacity:1; display:inline-block; transition: all 2s;
+			  `;
 				}, 3500);
 				icon.setAttribute("src", "images/icon/comments.svg");
-
 				boxComments.addEventListener("animationend", () => {
-					icon.style.cssText = `
-						position: absolute;
-						top:0;
-						transition: all 3s;`;
+					icon.style.cssText = ` position: absolute; top:0; transition: all 3s;`;
 					icon.setAttribute("src", "images/icon/close_circled.svg");
 				});
-				boxComments.appendChild(myComments);
-				if (created > 3) {
-					this.shadowRoot.querySelector("comments-box").remove();
-					created--;
-				}
 				show = true;
 			}
 		});
 	}
 	static observedAttributes() {
-		return [
-			"post",
-			"profile",
-			"bio",
-			"namePage",
-			"pin",
-			"comment",
-			"profileComments",
-			"profileName",
-		];
+		return ["post", "profile", "bio", "namePage", "pin"];
 	}
 }
 export { postBox };
