@@ -58,8 +58,12 @@ class postBox extends HTMLElement {
 			this.getAttribute("profileComments"),
 			this.getAttribute("profileName")
 		);
-		this.addComment()
 		
+		addComment(newComment, profile, username)
+    // Your existing code for adding comments goes here
+	
+		
+
 		function toggleImage(element, src, newSrc) {
 			let isToggled = false;
 
@@ -83,32 +87,34 @@ class postBox extends HTMLElement {
 			"images/icon/bookmark-slash.svg"
 		);
 	}
-	addComment(newComment,profile,username){
-		let wrapperNew = this.shadowRoot.getElementById('wrapperNew')
-		let btn = this.shadowRoot.querySelector('.addComment')
-		let textarea = this.shadowRoot.querySelector('textarea')
-		let userName = this.shadowRoot.getElementById('userName')
-		let selectFile = this.shadowRoot.getElementById('selectFile')
-		let img = this.shadowRoot.getElementById('profileComment')
-		let wrapperFile = this.shadowRoot.querySelector('label')
-		let content = false
-		btn.addEventListener('click',()=>{
+	addComment(newComment, profile, username) {
+		let wrapperNew = this.shadowRoot.getElementById("wrapperNew");
+		let btn = this.shadowRoot.querySelector(".addComment");
+		let textarea = this.shadowRoot.querySelector("textarea");
+		let userName = this.shadowRoot.getElementById("userName");
+		let selectFile = this.shadowRoot.getElementById("selectFile");
+		let img = this.shadowRoot.getElementById("profileComment");
+		let wrapperFile = this.shadowRoot.querySelector("label");
+		btn.addEventListener("click", () => {
 			setTimeout(() => {
-				wrapperNew.style.cssText='display:flex;'
-				selectFile.addEventListener('change',()=>{	
-					img.src = URL.createObjectURL(selectFile.files[0])
-					img.style.display = 'inline-block'
-					wrapperFile.style.display ='none'
-				})
+				wrapperNew.style.cssText = "display:flex;";
+				selectFile.addEventListener("change", () => {
+					img.src = URL.createObjectURL(selectFile.files[0]);
+					img.style.display = "inline-block";
+					wrapperFile.style.display = "none";
+				});
 			}, 500);
-		})
-		window.addEventListener('keypress',(event)=>{
+		});
+		window.addEventListener("keypress", event => {
 			if (event.keyCode === 13) {
-				console.log('enter');
-			}else{
-				console.log('false');
+				newComment = textarea.value;
+      			username = userName.value;
+      			profile = img.src;
+      			return [newComment, username, profile];
+			} else {
+				console.log("type...");
 			}
-		})
+		});
 	}
 	createBoxComments(comment, profile, namePage) {
 		let myComments = document.createElement("comments-box");
@@ -118,11 +124,10 @@ class postBox extends HTMLElement {
 		let created = 0;
 		let boxComments = this.shadowRoot.querySelector(".boxComments");
 		let icon = this.shadowRoot.getElementById("comment");
-		// comment="oohh what is location" profile="images/image/image_story2.jpg" namePage="deleteHistory"
 		let show = false;
 		let commentElements = new comments();
 		let allComments = commentElements.templateComments();
-		let btn = this.shadowRoot.querySelector('.addComment')
+		let btn = this.shadowRoot.querySelector(".addComment");
 		icon.addEventListener("click", () => {
 			created++;
 			if (show) {
@@ -148,24 +153,22 @@ class postBox extends HTMLElement {
 						position: relative;
 						z-index: 50;`;
 				});
-				btn.style.cssText=
-					`
+				btn.style.cssText = `
 					opacity:0;
 					display:none;
 					transition: all .5s;
-					`
+					`;
 				show = false;
 			} else {
 				boxComments.style.animation =
 					"showComments 3s forwards cubic-bezier(0,-0.67, 0.13, 1.49)";
 				setTimeout(() => {
-					allComments.style.cssText=`display:flex;;opacity:1;transition: all 3s; animation:MoveToBottom 1s forwards cubic-bezier(0,-0.67, 0.13, 1.49);`;
-					btn.style.cssText=
-					`
+					allComments.style.cssText = `display:flex;;opacity:1;transition: all 3s; animation:MoveToBottom 1s forwards cubic-bezier(0,-0.67, 0.13, 1.49);`;
+					btn.style.cssText = `
 					opacity:1;
 					display:inline-block;
 					transition: all 2s;
-					`
+					`;
 				}, 3500);
 				icon.setAttribute("src", "images/icon/comments.svg");
 
