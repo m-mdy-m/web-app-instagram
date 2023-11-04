@@ -1,6 +1,6 @@
 # Description of the project:
 <p>Hello !!!
-This project is my first project with Tylonid and this is a prototype of a fake and fictional site from the Instagram web application with the ability to comment and change photos and post different types of posts with desired photos and profiles..</p>
+This project is my first project with tailwind and this is a prototype of a fake and fictional site from the Instagram web application with the ability to comment and change photos and post different types of posts with desired photos and profiles..</p>
 
 
 ## A picture of the  `project`:
@@ -19,7 +19,7 @@ This project is my first project with Tylonid and this is a prototype of a fake 
 
 
 
-### Languages and Tools::
+### Languages and Tools:
 
 <p align="left"> 
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/>
