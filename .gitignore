@@ -1,6 +1,5 @@
-# ignoe ALL.json files
-# .json
-
-
-# ignore ALL directory named node_modules
-./node_modules
+tailwind.config.js
+package.json
+package-lock.json
+.prettierrc
+/node_modules
