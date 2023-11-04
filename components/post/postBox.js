@@ -1,7 +1,5 @@
 import { comments } from "../comments/comments.js";
 import { alertBox } from "../alert/alert.js";
-console.log(innerWidth);
-
 const template = document.createElement("template");
 template.innerHTML = `
 	<link rel="stylesheet" href="style/style.css" />
@@ -12,14 +10,14 @@ template.innerHTML = `
 							<img src="images/icon/more-horizontal.svg" alt="" class="cursor-pointer rounded-full w-[20px] h-[20px] mr-8 hover:bg-[#c5baba98] ">
 						</div>
 						<div class="  w-full h-5/6 relative ">
-							<img src="images/image/Post.jpg" alt="" class="postImg w-full h-full object-cover rounded-b-xl">
+							<img src="images/image/Post.jpg" alt="" class="postImg w-full h-full object-cover rounded-b-xl ">
 							<div class=" flex flex-col justify-around items-center [&>*]:cursor-pointer  w-8 h-40 linearGradient-100 absolute -right-10 bottom-6 rounded-xl linePost z-10 ">
 								<img src="images/icon/like.svg" alt="like"  id="like" >
 								<img src="images/icon/share.svg" alt="share" id="share"  class='mb-10'>
-								<div class="boxComments w-[24px] h-[24px] !cursor-default -z-30 rounded-t-xl flex justify-between items-end absolute top-[53%] left-[14%]">
+								<div class="boxComments w-[24px] h-[24px] !cursor-default  rounded-t-xl flex justify-between items-end absolute top-[53%] left-[14%]">
 									<button class="addComment opacity-0 hidden w-6 h-6 rounded-full absolute right-6 top-0 hover:bg-[#4397b1]"></button>
 									<div id="wrapperNew" class="animate-opacityAnimation flex-col hidden sm:w-3/4 justify-center items-center opacity-100 md:w-full [&>*]:px-2 [&>*]:py-2 h-full rounded-lg rounded-tl-md textArea ">
-										<textarea class="h-3/4 md:w-full  !pl-7 textArea resize-none  lowercase leading-5 text-xl focusInput text-start font-aktivLight text-PrimaryText-100 bg-transparent outline-0 border-0 rounded-tl-md"></textarea>
+										<textarea class="lg:h-3/4 md:w-full sm !pl-7 textArea resize-none  lowercase leading-5 text-xl focusInput text-start font-aktivLight text-PrimaryText-100 bg-transparent outline-0 border-0 rounded-tl-md"></textarea>
 										<div class="w-full h-1/4 flex justify-start   items-center   ">
 											<img src="images/image/image_story2.jpg"  alt="profile" id="profileComment" class="hidden w-8 h-8 object-contain cursor-pointer  bg-black rounded-full border border-solid opacity-100 animate-opacityAnimation border-x-cyan-950 border-y-cyan-700 hover:border-cyan-700 transition-all duration-400 hover:border-2">
 											<label for="selectFile" class="opacity-100 cursor-pointer w-24 h-full object-contain text-center capitalize text-white font-aktivRegular flex justify-center items-center rounded-md text-sm whitespace-nowrap p-4 bg-[#3354b085] border border-solid  animate-opacityAnimation border-x-teal-400 border-y-red-500 hover:border-red-700 transition-all duration-400 hover:border-2">select img</label>
@@ -199,10 +197,6 @@ class postBox extends HTMLElement {
 			} else {
 				boxComments.style.animation =
 					"showComments 3s forwards cubic-bezier(0,-0.67, 0.13, 1.49)";
-					if (window.innerWidth < 800) {
-						console.log('ah');
-						
-					  }
 				setTimeout(() => {
 					btn.style.cssText = ` opacity:1; display:inline-block; transition: all 2s;
 			  `;

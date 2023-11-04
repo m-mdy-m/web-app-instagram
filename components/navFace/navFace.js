@@ -14,6 +14,7 @@ class navFaceEmoji extends HTMLElement {
 		this.shadowRoot.appendChild(template.content.cloneNode(true));
 	}
 	connectedCallback() {
+		let aside = document.querySelector('aside')
 		let liMenu = this.shadowRoot.querySelector("li");
 		let menuFace = this.shadowRoot.querySelector("div");
 		let img = this.shadowRoot.querySelector("img");
@@ -38,8 +39,10 @@ class navFaceEmoji extends HTMLElement {
 				width:0;
 				height:0%;
 				opacity:0;
+				display:none;
 				transition: all 2s;
 				`;
+				aside.style.width='1rem'
 				menuText.style.cssText = `
 					opacity:0;
 					`;
@@ -56,13 +59,14 @@ class navFaceEmoji extends HTMLElement {
 					height:75%;
 					opacity:1;
 					transition: all 2s;
+					display:block;
 					`;
 					menuText.style.cssText = `
-					animation: opacityAnimation 1s forwards 2s cubic-bezier(0, 1.2, 0.45, 1.4);
+					animation: opacityAnimation 1s forwards 1.5s cubic-bezier(0, 1.2, 0.45, 1.4);
 					opacity:0;
 					`;
 					menuProfile.style.cssText = `
-					animation: opacityAnimation 1s forwards 2s cubic-bezier(0, 1.2, 0.45, 1.4);
+					animation: opacityAnimation 1s forwards 1.5s cubic-bezier(0, 1.2, 0.45, 1.4);
 					opacity:0;
 					`;
 				}
@@ -77,6 +81,7 @@ class navFaceEmoji extends HTMLElement {
 						img.setAttribute("src", "images/icon/face-glasses.svg");
 					}, 6000);
 				}
+				aside.style.width='15rem'
 			}
 		});
 		// w-60 h-3/4
