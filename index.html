@@ -6,9 +6,8 @@
 		<title>WebInstagram</title>
 		<link rel="stylesheet" href="style/style.css" />
 		<link rel="icon" href="images/icon/Instagram.svg">
-		<link rel="stylesheet" href="nav.css">
 	</head>
-	<body class="bg-black w-full h-screen box-border relative">
+	<body class="bg-black w-full h-screen box-border relative ">
 		<!-- <div class="w-auto h-20 alert absolute top-16  left-4 rounded-xl flex justify-start items-center alertAnimation z-[999999999999]">
 			<img src="images/icon/octagon-exclamation.svg" alt="Alert" class="mr-2 w-16 h-full ">
 			<div class=" flex justify-center flex-col items-start capitalize  ">
@@ -16,19 +15,19 @@
 				<p class="text-[10px] whitespace-nowrap text-PrimaryText-100">oops! it's like ypu didn't choose your photo!</p>
 			</div>
 		</div> -->
-		<div class="container ">
-			<header class="w-full h-64 flex flex-col ">
-				<div class="h-1/4   flex justify-center items-center">
-					<div class="basis-[20%] h-full flex items-center justify-center relative logo">
+		<div class="container px-2 m-0 ">
+			<header class="w-full  h-64 flex flex-col ">
+				<div class="h-1/4 flex justify-center items-center">
+					<div class="basis-[20%]  h-full flex items-center justify-center relative logo">
 						<img src="images/icon/Instagram.svg" alt="" class="w-20 h-full z-10 logoInstagram">
 						<h2 class="text-5xl text-white font-mavisBold absolute scale-[.1] opacity-0">Instagram</h2>
 					</div>
-					<div class="basis-[60%] h-full  relative flex justify-start items-center">
+					<div class="basis-[60%] h-full relative flex justify-start items-center">
 						<search-box class="relative w-full" textHolder="Search page..."></search-box>	
 						<!-- <img src="images/icon/search.svg" alt="search" class="absolute left-0  w-6 opacity-0 animate-opacityAnimation "> -->
 						<!-- <input type="search" placeholder="" class="border-0 rounded-lg w-full h-6 pl-7 bg-transparent outline-0 text-white SearchBox text-base capitalize opacity-0 animate-opacityAnimation" autofocus> -->
 					</div>
-					<div class="basis-[20%] h-full  flex justify-center items-center ">
+					<div class="basis-[20%] h-full flex justify-center items-center ">
 						<btn-box content="create post" ></btn-box>
    						<!-- <button class="w-24 h-8 bg-teal-600 rounded-xl font-mavisBold uppercase text-base text-slate-100 justify-items-center mr-5 hover:bg-teal-800 opacity-0 animate-opacityAnimation">create post</button>
 						   <a href="#">
@@ -38,11 +37,11 @@
 					</div>
 				</div>
 				<div class="h-3/4 flex justify-center items-center relative ">
-					<!-- <div class="h-48 w-[85px] min-w-[70px] max-w-28 flex flex-col justify-between items-center relative font-aktivLight bgImage object-cover lowercase shadowBefore rounded-lg  mx-3  opacity-0 odd:animate-MoveToBottom even:animate-MoveToTop ">
+					<!-- <div class="h-48 w-[85px]  sm:w-[70px] sm:p-0 sm:m-2 sm:h-full flex flex-col justify-between items-center md:items-center relative font-aktivLight bgImage lowercase shadowBefore rounded-lg  mx-3  opacity-0 odd:animate-MoveToBottom even:animate-MoveToTop ">
 						<figure class="h-full flex flex-col justify-between items-center w-full  ">
-							<img src="../images/image/image_story.jpg" alt="" class="w-full rounded-full storyLine cursor-pointer mt-2 hover:scale-[1.2] transition-all duration-1000 object-contain">
+							<img src="images/image/image_story.jpg" alt="" class="w-full rounded-full storyLine cursor-pointer mt-2 hover:scale-[1.2] transition-all duration-1000 object-cover">
 						</figure>
-						<h3 class=" text-xs text-gray-100  text-center pb-4 cursor-pointer "></h3>
+						<h3 class=" text-xs text-gray-100  text-center pb-4 cursor-pointer md:p-0 ">m--m--m</h3>
 					</div> -->
 					<story-box profile="../images/image/image_story.jpg" id-page="mahdi1383" bgProfile="../images/image/image_story.jpg" nameAnimation="MoveToBottom"></story-box>
 					<story-box profile="../images/image/image_story2.jpg" id-page="m__mdy__m" bgProfile="../images/image/image_story3.jpg" nameAnimation="MoveToTop"></story-box>
@@ -55,7 +54,7 @@
 				</div>
 			</header>
 		</div>
-		<aside class="h-screen  fixed w-60 right-0 top-[4.5rem] ">
+		<aside class="h-screen fixed w-60 right-0 top-[4.5rem]">
 				<nav-box ></nav-box>
 				<!-- <div class="flex justify-center items-center w-12 h-12 opacity-100 fixed right-12 bottom-12 animate-MoveToRight">
 					<img src="images/icon/face-grin-wide.svg" alt="add_circled" class="opacity-20 absolute w-16 h-12 z-20 cursor-pointer rounded-full bg-green-400" />
@@ -91,18 +90,18 @@
 				</div>
 			</aside>
 			
-		<div class="container ">
-			<main class="w-full h-[379px] flex justify-center items-center">
+		<div class="container p-0 px-16">
+			<main class="w-full h-[379px]  flex justify-center items-center ">
 				
-				<section class=" w-5/6 h-full flex flex-col justify-start items-center  overflow-y-scroll overflow-x-clip mt-4 z-50 editScroll opacity-0">
-					<!-- <div class=" w-[35rem] min-w-[35rem]  h-96 relative my-4  mx-auto z-10 ">
+				<section class=" w-5/6 s  h-full flex flex-col justify-start items-center  overflow-y-scroll overflow-x-clip mt-4 editScroll opacity-0">
+					<!-- <div class=" md:w-[35rem] md:h-96 relative my-4 sm:w-[27rem] sm:h-[28rem]   mx-auto z-10 ">
 						<img src="images/icon/pin.svg" alt="" class="absolute -right-2 -top-2 rotate-45 opacity-100 z-50">
 						<div class="linearGradient-100 w-full h-1/6 flex justify-between items-center rounded-t-3xl ">
 							<page-dir sourceProfile="images/image/image_story4.jpg" namePage="_medishne_" bio="Hello!"></page-dir>
 							<img src="images/icon/more-horizontal.svg" alt="" class="cursor-pointer rounded-full w-[20px] h-[20px] mr-8 hover:bg-[#c5baba98] ">
 						</div>
 						<div class="  w-full h-5/6 relative ">
-							<img src="images/image/Post.jpg" alt="" class="postImg w-full h-full object-cover rounded-b-xl ">
+							<img src="images/image/Post.jpg" alt="" class="postImg w-full h-full object-cover rounded-b-xl">
 							<div class=" flex flex-col justify-around items-center [&>*]:cursor-pointer  w-8 h-40 linearGradient-100 absolute -right-10 bottom-6 rounded-xl linePost z-10 ">
 								<img src="images/icon/like.svg" alt="like"  id="like" >
 								<img src="images/icon/share.svg" alt="share" id="share"  class='mb-10'>

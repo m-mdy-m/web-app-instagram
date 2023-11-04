@@ -221,11 +221,11 @@
 			#0d4dcda1
 		);
 	}
-	.editScroll{
-		&::-webkit-scrollbar{
+	.editScroll {
+		&::-webkit-scrollbar {
 			appearance: none;
 		}
-		&::before{
+		&::before {
 			content: "";
 			opacity: 0;
 			text-align: center;
@@ -247,7 +247,7 @@
 			animation: downScroll 15s both 2s;
 			background-repeat: no-repeat;
 			background-size: 30px;
-			background-position:bottom;
+			background-position: bottom;
 		}
 		animation: opacityAnimation 2s forwards 2s;
 	}
@@ -255,54 +255,54 @@
 		animation: alert 2s forwards cubic-bezier(0, -0.67, 0.13, 1.49);
 	}
 	@keyframes downScroll {
-		0%{
+		0% {
 			content: "";
 			opacity: 0;
 		}
-		2%{
+		2% {
 			opacity: 0.5;
 			content: "s";
 		}
-		10%{
+		10% {
 			content: "sc";
 		}
-		20%{
+		20% {
 			content: "scr";
 		}
-		30%{
+		30% {
 			content: "scro";
 		}
-		40%{
+		40% {
 			content: "scrol";
 		}
-		45%{
+		45% {
 			content: "scroll";
 		}
-		50%{
+		50% {
 			content: "scroll ";
 		}
-		60%{
+		60% {
 			content: "scroll d";
 		}
-		65%{
+		65% {
 			content: "scroll do";
 		}
-		70%{
+		70% {
 			content: "scroll dow";
-		
+
 			background-image: url("");
 		}
-		80%{
+		80% {
 			content: "scroll down";
 			background-image: url("../images/icon/down.svg");
 		}
-		
-		90%{
+
+		90% {
 			opacity: 1;
 			content: "scroll down";
 			background-image: url("../images/icon/down.svg");
 		}
-		100%{
+		100% {
 			opacity: 0;
 			background-image: url("../images/icon/down.svg");
 		}
@@ -391,6 +391,9 @@
 			position: absolute;
 			top: 10%;
 			left: -1700%;
+			@media (min-width: 640px) {
+				left: -1400%;
+			}
 		}
 		70% {
 			width: 1670%;
@@ -399,6 +402,10 @@
 			background-color: transparent;
 			top: 10%;
 			left: -1700%;
+			@media (min-width: 640px) {
+			width: 1670%;
+				left: -1400%;
+			}
 		}
 		90% {
 			width: 1670%;
@@ -407,6 +414,10 @@
 			background-color: #ffffff69;
 			top: 10%;
 			left: -1700%;
+			@media (min-width: 640px) {
+			width: 1670%;
+				left: -1400%;
+			}
 		}
 		100% {
 			width: 1670%;
@@ -414,6 +425,10 @@
 			position: absolute;
 			top: 10%;
 			left: -1700%;
+			@media (min-width: 640px) {
+			width: 1670%;
+				left: -1400%;
+			}
 		}
 	}
 	@keyframes showText {

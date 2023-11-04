@@ -10,7 +10,7 @@ class alertBox extends HTMLElement {
 	templateComments() {
 		this.shadowRoot.innerHTML = `
 		<link rel="stylesheet" href="style/style.css" />
-    	<div class="w-auto h-20 alert absolute top-16  left-4 rounded-xl flex justify-start items-center alertAnimation z-[999999999999]">
+    	<div class="fixed w-auto h-20 alert top-16  left-4 rounded-xl flex justify-start items-center alertAnimation z-[999999999999]">
 			<img src="images/icon/octagon-exclamation.svg" alt="Alert" class="mr-2 w-16 h-full ">
 			<div class=" flex justify-center flex-col items-start capitalize  ">
 				<h2 class="text-2xl whitespace-nowrap text-PrimaryText " >please select images</h2>
