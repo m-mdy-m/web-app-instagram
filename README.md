@@ -1,15 +1,28 @@
-# About the tower:
-<p>Qaboos Tower is one of the first architectural works in Razi style and it is placed in a complex along with other tomb towers of Tabaristan and Gilan. This tower is considered the tallest all-brick tower in the world and its building height is 52 meters and it stands on a 15 meters high hill.</p>
+# Description of the project:
+<p>Hello !!!
+This project is my first project with Tylonid and this is a prototype of a fake and fictional site from the Instagram web application with the ability to comment and change photos and post different types of posts with desired photos and profiles..</p>
 
 
-## What is the `benefit` of this site?
-<p>This site will help you to make your trip easier if you are a foreign tourist and get to know the whole history of the tower.</p>
-
-[Tower on Google Maps](https://maps.app.goo.gl/LhGWPExWQu4um1TN9)
-
+## A picture of the  `project`:
 ![Capture](https://github.com/m-mdy-m/LikewebInstagram/assets/148723252/d56b36b6-8daa-45dd-8e9b-d7a28024de30)
 
 
-### More complete description:
 
-<p>In fact, this project is designed to familiarize people with the national park of Gonbad Kavos city located in Golestan province and to familiarize them as much as possible with the Qavos tower, which is one of the most important ancient monuments of Iran and the world.</p>
+
+
+
+### Comments style
+<p>An image of the comments section and commenting style.</p>
+
+![Comments](https://github.com/m-mdy-m/LikewebInstagram/assets/148723252/c31a0c60-ed08-47f5-8f35-2ec457f64831)
+
+
+
+
+### Languages and Tools::
+
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/>
+<img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> 
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> 
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> 
+<img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/>
