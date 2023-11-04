@@ -1,0 +1,5 @@
+tailwind.config.js,
+package.json,
+package-lock.json,
+.prettierrc,
+node_modules
