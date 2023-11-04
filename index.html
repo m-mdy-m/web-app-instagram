@@ -94,8 +94,8 @@
 		<div class="container ">
 			<main class="w-full h-[379px] flex justify-center items-center">
 				
-				<section class=" w-5/6 h-full flex flex-col justify-start items-center  overflow-y-scroll overflow-x-clip mt-4 z-50">
-					<!-- <div class=" w-[35rem] min-w-[35rem]  h-96 relative my-4  mx-auto ">
+				<section class=" w-5/6 h-full flex flex-col justify-start items-center  overflow-y-scroll overflow-x-clip mt-4 z-50 editScroll opacity-0">
+					<!-- <div class=" w-[35rem] min-w-[35rem]  h-96 relative my-4  mx-auto z-10 ">
 						<img src="images/icon/pin.svg" alt="" class="absolute -right-2 -top-2 rotate-45 opacity-100 z-50">
 						<div class="linearGradient-100 w-full h-1/6 flex justify-between items-center rounded-t-3xl ">
 							<page-dir sourceProfile="images/image/image_story4.jpg" namePage="_medishne_" bio="Hello!"></page-dir>
@@ -106,13 +106,13 @@
 							<div class=" flex flex-col justify-around items-center [&>*]:cursor-pointer  w-8 h-40 linearGradient-100 absolute -right-10 bottom-6 rounded-xl linePost z-10 ">
 								<img src="images/icon/like.svg" alt="like"  id="like" >
 								<img src="images/icon/share.svg" alt="share" id="share"  class='mb-10'>
-								<div class="boxComments  w-[24px] h-[24px] !cursor-default -z-30 rounded-t-xl flex justify-between items-end absolute top-[53%] left-[14%]">
+								<div class="boxComments w-[24px] h-[24px] !cursor-default -z-30 rounded-t-xl flex justify-between items-end absolute top-[53%] left-[14%]">
 									<button class="addComment opacity-0 hidden w-6 h-6 rounded-full absolute right-6 top-0 hover:bg-[#4397b1]"></button>
-									<div id="wrapperNew" class="animate-opacityAnimation flex-col hidden justify-center items-center opacity-100 w-full [&>*]:px-2 [&>*]:py-2 h-full rounded-lg bg-[#3e3939d0] ">
-										<textarea class="h-3/4 w-full !pl-7 textArea resize-none  lowercase leading-5 text-xl focusInput text-start font-aktivLight text-PrimaryText-100 bg-transparent outline-0 border-0"></textarea>
+									<div id="wrapperNew" class="animate-opacityAnimation flex-col hidden justify-center items-center opacity-100 w-full [&>*]:px-2 [&>*]:py-2 h-full rounded-lg rounded-tl-md textArea ">
+										<textarea class="h-3/4 w-full !pl-7 textArea resize-none  lowercase leading-5 text-xl focusInput text-start font-aktivLight text-PrimaryText-100 bg-transparent outline-0 border-0 rounded-tl-md"></textarea>
 										<div class="w-full h-1/4 flex justify-start   items-center   ">
 											<img src="images/image/image_story2.jpg"  alt="profile" id="profileComment" class="hidden w-8 h-8 object-contain cursor-pointer  bg-black rounded-full border border-solid opacity-100 animate-opacityAnimation border-x-cyan-950 border-y-cyan-700 hover:border-cyan-700 transition-all duration-400 hover:border-2">
-											<label for="selectFile" class="opacity-100 cursor-pointer w-24 h-full object-contain text-center capitalize text-white font-aktivRegular flex justify-center items-center rounded-md text-sm whitespace-nowrap bg-black border border-solid  animate-opacityAnimation border-x-teal-400 border-y-red-500 hover:border-red-700 transition-all duration-400 hover:border-2">select img</label>
+											<label for="selectFile" class="opacity-100 cursor-pointer w-24 h-full object-contain text-center capitalize text-white font-aktivRegular flex justify-center items-center rounded-md text-sm whitespace-nowrap p-4 bg-[#3354b085] border border-solid  animate-opacityAnimation border-x-teal-400 border-y-red-500 hover:border-red-700 transition-all duration-400 hover:border-2">select img</label>
 											<input type="file" required accept="image/jpg,image/png ,image/jpeg" class="hidden" id="selectFile">
 											<input type="text" id="userName" autofocus required placeholder="user name:" class="font-aktivLight foc  rounded-r-md text-PrimaryText !bg-transparent capitalize text-xs outline-0 border-0 pl-2 h-full w-2/3"> 
 										</div>
@@ -131,11 +131,11 @@
 						</div>
 					</div> -->
 					<post-box post="images/image/Post.jpg" profile="images/image/image_story2.jpg"  bio="greats"namePage="m__mdy__m" pin="images/icon/pin.svg"></post-box> 
-					<!-- <post-box post="images/image/Post2.jpg" profile="images/image/image_story3.jpg" bio="Hello"  namePage="_medishne_" pin=""></post-box> -->
-					<!-- <post-box post="images/image/Post3.jpg" profile="images/image/image_story6.jpg"  bio="Bye" namePage="mt5" pin=""></post-box> -->
-					<!-- <post-box post="images/image/Post4.jpg" profile="images/image/image_story4.jpg" bio="hi" namePage="ali24"  pin=""></post-box> -->
-					<!-- <post-box post="images/image/Post5.jpg" profile="images/image/image_story.jpg"  bio="god"namePage="abass"  pin=""></post-box> -->
-					<!-- <post-box post="images/image/Post.jpg" profile="images/image/image_story5.jpg" bio="this" namePage="_medishne_"  pin=""></post-box> -->
+					<post-box post="images/image/Post2.jpg" profile="images/image/image_story3.jpg" bio="Hello"  namePage="_medishne_" pin=""></post-box>
+					<post-box post="images/image/Post3.jpg" profile="images/image/image_story6.jpg"  bio="Bye" namePage="mt5" pin=""></post-box>
+					<post-box post="images/image/Post4.jpg" profile="images/image/image_story4.jpg" bio="hi" namePage="ali24"  pin=""></post-box>
+					<post-box post="images/image/Post5.jpg" profile="images/image/image_story.jpg"  bio="god"namePage="abass"  pin=""></post-box>
+					<post-box post="images/image/Post.jpg" profile="images/image/image_story5.jpg" bio="this" namePage="_medishne_"  pin=""></post-box>
 				</section>
 			</main>
 			

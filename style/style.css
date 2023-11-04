@@ -640,10 +640,6 @@ video {
   bottom: 3rem;
 }
 
-.bottom-4 {
-  bottom: 1rem;
-}
-
 .bottom-6 {
   bottom: 1.5rem;
 }
@@ -680,24 +676,16 @@ video {
   top: 25%;
 }
 
+.top-16 {
+  top: 4rem;
+}
+
 .top-\[4\.5rem\] {
   top: 4.5rem;
 }
 
 .top-\[53\%\] {
   top: 53%;
-}
-
-.top-8 {
-  top: 2rem;
-}
-
-.top-20 {
-  top: 5rem;
-}
-
-.top-16 {
-  top: 4rem;
 }
 
 .-z-10 {
@@ -923,10 +911,6 @@ video {
   width: 2rem;
 }
 
-.w-80 {
-  width: 20rem;
-}
-
 .w-9 {
   width: 2.25rem;
 }
@@ -947,12 +931,12 @@ video {
   width: 85px;
 }
 
-.w-full {
-  width: 100%;
-}
-
 .w-auto {
   width: auto;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .min-w-\[35rem\] {
@@ -1117,6 +1101,10 @@ video {
   border-bottom-right-radius: 2rem;
 }
 
+.rounded-tl-md {
+  border-top-left-radius: 0.375rem;
+}
+
 .rounded-tr-\[2rem\] {
   border-top-right-radius: 2rem;
 }
@@ -1179,6 +1167,10 @@ video {
   background-color: #0000009c;
 }
 
+.bg-\[\#3354b085\] {
+  background-color: #3354b085;
+}
+
 .bg-\[\#3e3939d0\] {
   background-color: #3e3939d0;
 }
@@ -1218,6 +1210,10 @@ video {
 
 .p-2 {
   padding: 0.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .px-2 {
@@ -1579,8 +1575,123 @@ video {
 		);
 }
 
+.textArea {
+  background-image: linear-gradient(
+			to right bottom,
+			#121e2c41,
+			#0b1d3263,
+			#051b379f,
+			#01193ca8,
+			#001740ab,
+			#001b4ca4,
+			#021d57ab,
+			#091f63a6,
+			#0d2b7caf,
+			#0f3596b0,
+			#1040b19c,
+			#0d4dcda1
+		);
+}
+
+.editScroll{
+  &::-webkit-scrollbar{
+    -webkit-appearance: none;
+            appearance: none;
+  }
+  &::before{
+    content: "";
+    opacity: 0;
+    text-align: center;
+    display: flex;
+    font-family: "MAVISBold";
+    flex-direction: column;
+    justify-content: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #d4994bab;
+    position: absolute;
+    inset: -5% 0% 0% 0%;
+    margin: auto;
+    /* background: transparent; */
+    width: 10rem;
+    height: 4rem;
+    z-index: 1000000000;
+    border-radius: 50%;
+    animation: downScroll 15s both 2s;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position:bottom;
+  }
+  animation: opacityAnimation 2s forwards 2s;
+}
+
 .alertAnimation {
   animation: alert 2s forwards cubic-bezier(0, -0.67, 0.13, 1.49);
+}
+
+@keyframes downScroll {
+  0%{
+    content: "";
+    opacity: 0;
+  }
+
+  2%{
+    opacity: 0.5;
+    content: "s";
+  }
+
+  10%{
+    content: "sc";
+  }
+
+  20%{
+    content: "scr";
+  }
+
+  30%{
+    content: "scro";
+  }
+
+  40%{
+    content: "scrol";
+  }
+
+  45%{
+    content: "scroll";
+  }
+
+  50%{
+    content: "scroll ";
+  }
+
+  60%{
+    content: "scroll d";
+  }
+
+  65%{
+    content: "scroll do";
+  }
+
+  70%{
+    content: "scroll dow";
+    background-image: url("");
+  }
+
+  80%{
+    content: "scroll down";
+    background-image: url("../images/icon/down.svg");
+  }
+
+  90%{
+    opacity: 1;
+    content: "scroll down";
+    background-image: url("../images/icon/down.svg");
+  }
+
+  100%{
+    opacity: 0;
+    background-image: url("../images/icon/down.svg");
+  }
 }
 
 @keyframes alert {

@@ -16,11 +16,11 @@ template.innerHTML = `
 								<img src="images/icon/share.svg" alt="share" id="share"  class='mb-10'>
 								<div class="boxComments w-[24px] h-[24px] !cursor-default -z-30 rounded-t-xl flex justify-between items-end absolute top-[53%] left-[14%]">
 									<button class="addComment opacity-0 hidden w-6 h-6 rounded-full absolute right-6 top-0 hover:bg-[#4397b1]"></button>
-									<div id="wrapperNew" class="animate-opacityAnimation flex-col hidden justify-center items-center opacity-100 w-full [&>*]:px-2 [&>*]:py-2 h-full rounded-lg bg-[#3e3939d0] ">
-										<textarea class="h-3/4 w-full !pl-7 textArea resize-none  lowercase leading-5 text-xl focusInput text-start font-aktivLight text-PrimaryText-100 bg-transparent outline-0 border-0"></textarea>
+									<div id="wrapperNew" class="animate-opacityAnimation flex-col hidden justify-center items-center opacity-100 w-full [&>*]:px-2 [&>*]:py-2 h-full rounded-lg rounded-tl-md textArea ">
+										<textarea class="h-3/4 w-full !pl-7 textArea resize-none  lowercase leading-5 text-xl focusInput text-start font-aktivLight text-PrimaryText-100 bg-transparent outline-0 border-0 rounded-tl-md"></textarea>
 										<div class="w-full h-1/4 flex justify-start   items-center   ">
 											<img src="images/image/image_story2.jpg"  alt="profile" id="profileComment" class="hidden w-8 h-8 object-contain cursor-pointer  bg-black rounded-full border border-solid opacity-100 animate-opacityAnimation border-x-cyan-950 border-y-cyan-700 hover:border-cyan-700 transition-all duration-400 hover:border-2">
-											<label for="selectFile" class="opacity-100 cursor-pointer w-24 h-full object-contain text-center capitalize text-white font-aktivRegular flex justify-center items-center rounded-md text-sm whitespace-nowrap bg-black border border-solid  animate-opacityAnimation border-x-teal-400 border-y-red-500 hover:border-red-700 transition-all duration-400 hover:border-2">select img</label>
+											<label for="selectFile" class="opacity-100 cursor-pointer w-24 h-full object-contain text-center capitalize text-white font-aktivRegular flex justify-center items-center rounded-md text-sm whitespace-nowrap p-4 bg-[#3354b085] border border-solid  animate-opacityAnimation border-x-teal-400 border-y-red-500 hover:border-red-700 transition-all duration-400 hover:border-2">select img</label>
 											<input type="file" required accept="image/jpg,image/png ,image/jpeg" class="hidden" id="selectFile">
 											<input type="text" id="userName" autofocus required placeholder="user name:" class="font-aktivLight foc  rounded-r-md text-PrimaryText !bg-transparent capitalize text-xs outline-0 border-0 pl-2 h-full w-2/3"> 
 										</div>
@@ -88,14 +88,34 @@ class postBox extends HTMLElement {
 		let img = this.shadowRoot.getElementById("profileComment");
 		let wrapperFile = this.shadowRoot.querySelector("label");
 		let created = 0;
-		let commentElements = new comments();
-		let allComments = commentElements.templateComments();
-		let icon = this.shadowRoot.getElementById("comment");
 		let alertELm = document.createElement('alert-box')
+		let boxComments = this.shadowRoot.querySelector(".boxComments");
+		let myComment = document.createElement('comments-box')
+		let icon = this.shadowRoot.getElementById("comment");
+		let show = false;
+
+		icon.addEventListener("click", () => {
+			if (show) {
+				show = false;
+				myComment.style.display='none'
+				wrapperNew.style.display='none'
+				icon.setAttribute("src", "images/icon/comments.svg");
+			} else {
+				show = true;
+				setTimeout(() => {
+					myComment.style.display='flex'
+					
+				}, 3000);
+			}
+		});
+
+
+
 		function alertContent(texAlert,alertDis){
-			alertELm.setAttribute("texAlert",texAlert)
-			alertELm.setAttribute("alert",alertDis)
-			document.body.appendChild(alertELm)
+				alertELm.setAttribute("texAlert",texAlert)
+				alertELm.setAttribute("alert",alertDis)
+				document.body.appendChild(alertELm)
+			
 		}
 		btn.addEventListener("click", () => {
 			setTimeout(() => {
@@ -111,11 +131,10 @@ class postBox extends HTMLElement {
 					let newComment
 					if(textarea.value !=='') newComment = textarea.value ;
 					let username ;
-					// = if userName.value.trim()!==""
 					if(userName.value!=="") username = userName.value ;
 					let profile;
+					
 					if(img.src!=="") profile = img.src ;
-					let boxComments = this.shadowRoot.querySelector(".boxComments");
 					textarea.value = "";
 					userName.value = "";
 					img.src = "";
@@ -124,7 +143,7 @@ class postBox extends HTMLElement {
 					img.style.display = "none";
 					wrapperFile.style.display = "block";
 					wrapperNew.style.display = "none";
-					let myComment = document.createElement('comments-box')
+					
 					if (content[0] !== undefined && content[1] !== undefined && content[2] !==undefined){
 						myComment.setAttribute("comment", content[0]);
 						myComment.setAttribute("profile", content[2]);
@@ -144,10 +163,6 @@ class postBox extends HTMLElement {
 						this.shadowRoot.querySelector("comments-box").remove();
 						created--;
 					}
-					icon.addEventListener('click',()=>{
-						console.log('click');
-					})
-					
 				} 
 			});
 		});
@@ -171,7 +186,6 @@ class postBox extends HTMLElement {
 				// allComments.style.cssText =
 				// 	"opacity:0;transition: all .5s; animation:none; display:none;";
 				boxComments.addEventListener("animationend", () => {
-					icon.setAttribute("src", "images/icon/comments.svg");
 					icon.style.cssText = `
 				top:auto;
 				transition: all 3s;
