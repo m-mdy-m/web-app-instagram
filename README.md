@@ -7,7 +7,8 @@
 
 [Tower on Google Maps](https://maps.app.goo.gl/LhGWPExWQu4um1TN9)
 
-![images:](https://lh3.googleusercontent.com/p/AF1QipP-IFOvhl0eHHhd_15OVzNdNZ214PRodpRLE2Z1=s1360-w1360-h1020)
+![Capture](https://github.com/m-mdy-m/LikewebInstagram/assets/148723252/d56b36b6-8daa-45dd-8e9b-d7a28024de30)
+
 
 ### More complete description:
 
